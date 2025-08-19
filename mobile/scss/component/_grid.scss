@@ -1,0 +1,280 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../setting/const';
+@use '../setting/var';
+@use '../helper/mixin';
+
+
+html,
+body {
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	min-width: var.$minWidth_base;
+	min-height: 100%;
+}
+
+html {
+	background-color: transparent;
+	@include mixin.font(var.$color_text_base 400 '#{const.$fontSize_base}/1' [var.$fontFamily_base]);
+	letter-spacing: -0.5px;
+	word-break: break-all;
+	@include mixin.prefix(text-size-adjust, none, webkit ms);
+}
+
+body {
+	background-color: #fff;
+	-webkit-overflow-scrolling: touch;
+	@include mixin.prefix(user-select, none, webkit ms);
+	-webkit-touch-callout: none;
+}
+
+.__ios {
+	a,
+	button,
+	label,
+	[tabindex] {
+		-webkit-tap-highlight-color: transparent;
+	}
+}
+
+//< 스킵 네비게이션
+.mm_skip {
+	position: absolute;
+	z-index: const.$zIndex_skip;
+	top: 0;
+	left: 0;
+	@include mixin.font('0/1');
+
+	a:focus {
+		padding: 10px;
+		background-color: var.$color_primary_base;
+		@include mixin.font(#fff 700 '12px');
+	}
+}
+//> 스킵 네비게이션
+
+//< 전체 영역
+.mm_app {
+	position: relative;
+	height: 100%;
+
+	> .image_stage {
+		display: block;
+		height: 100%;
+		@include mixin.background(transparent '50% 50%/35%' no-repeat);
+	}
+}
+//> 전체 영역
+
+//< 기본 화면
+.mm_view {
+	position: relative;
+	height: 100%;
+}
+//> 기본 화면
+
+//< 페이지
+.mm_page {
+	position: relative;
+	height: 100%;
+
+	> .mm_scroller {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		padding: var.$height_header_base 0 var.$height_toolbar_base;// mobile
+
+		.__noscroll & {
+			overflow: hidden;
+		}
+	}
+
+	&-inner {
+		display: grid;
+		grid-template-rows: 1fr auto;
+		grid-template-columns: 100%;
+		min-height: 100%;
+		background-color: #fff;
+	}
+
+	&-content {
+		position: relative;
+	}
+
+	.btn_kakaoplus {
+		position: fixed;
+		z-index: const.$zIndex_floating;
+		right: 14px;
+		bottom: 15px + var.$height_toolbar_base;
+		padding-top: 8px;
+		width: 46px;
+		height: 71px;
+		@include mixin.background(url('https://image.hago.kr/mall/ui/mobile/content/side_kakaoplus.png') '0 0/contain' no-repeat);
+		@include mixin.transition(bottom const.$time_fast);
+
+		html[class*="_popup_"] & {
+			display: none;
+		}
+
+		html[class*="_frame_"]:not([class*="_main_"]) & {
+			bottom: 15px;
+		}
+
+		html[class*="_lowbtn_"] & {
+			display: none;
+		}
+
+		html[class*="_main_"]:not([class*="_lowbtn_"]) & {
+			bottom: 15px;
+		}
+	}
+
+	.btn_topmost {
+		position: fixed;
+		z-index: const.$zIndex_floating;
+		right: 14px;
+		bottom: 15px + var.$height_toolbar_base;
+		padding-top: 8px;
+		width: 46px;
+		height: 46px;
+		border-radius: 100%;
+		background-color: rgba(#101010, 0.7);
+		@include mixin.font(#fff '15px' center);
+		@include mixin.opacity(0, none);
+		@include mixin.transition(opacity const.$time_fast);
+
+		.mco_topmost {
+			font-size: 10px;
+			@include mixin.transform(scale(0.8));
+		}
+
+		b {
+			display: block;
+			margin-top: -5px;
+		}
+
+		html[class*="_popup_"] & {
+			bottom: 10px;
+		}
+
+		html[class*="_frame_"]:not([class*="_main_"]) & {
+			bottom: 15px;
+		}
+
+		html[class*="_lowbtn_"] & {
+			bottom: 15px + var.$height_lowbtn_base;
+		}
+
+		html[class*="_main_"]:not([class*="_lowbtn_"]) & {
+			bottom: 15px;
+		}
+
+		&.__on {
+			@include mixin.opacity(1, auto);
+
+			+ .btn_kakaoplus {
+				bottom: 25px + 46px + var.$height_toolbar_base;
+
+				html[class*="_popup_"] & {
+					bottom: 15px + 46px;
+				}
+
+				html[class*="_frame_"]:not([class*="_main_"]) & {
+					bottom: 25px + 46px;
+				}
+
+				html[class*="_lowbtn_"] & {
+					bottom: var.$height_lowbtn_base + 71px;
+				}
+
+				html[class*="_main_"]:not([class*="_lowbtn_"]) & {
+					bottom: 25px + 46px;
+				}
+			}
+		}
+	}
+}
+//> 페이지
+
+//< 메인 페이지
+html[class*="_main_"] {
+	.mm_page {
+		> .mm_scroller {
+			padding-top: 0;
+		}
+	}
+
+	&[class*="_frame_"] {
+		.mm_page {
+			> .mm_scroller {
+				padding-top: var.$height_header_main + var.$height_gnb;
+
+				.__main_lift__ {
+					margin-top: -(var.$height_gnb);
+				}
+			}
+		}
+	}
+}
+//> 메인 페이지
+
+//< 하단버튼고정 페이지
+html[class*="_lowbtn_"] {
+	.mm_page {
+		> .mm_scroller {
+			padding-bottom: var.$height_lowbtn_base;
+		}
+	}
+
+	.btn_topmost {
+		bottom: 15px + var.$height_lowbtn_base;
+	}
+
+	&.__layout_popup__ {
+		.mm_page-content {
+			padding-bottom: 50px + var.$height_lowbtn_base;
+		}
+	}
+}
+//> 하단버튼고정 페이지
+
+//< 아이프레임 페이지
+html[class*="_frame_"] {
+	&:not([class*="_main_"]) {
+		overflow-y: visible;
+
+		body {
+			overflow: visible;
+		}
+	}
+}
+//> 아이프레임 페이지
+
+//< 외부링크 페이지
+html[class*="_external_"] {
+	overflow: visible;
+
+	body {
+		overflow: visible;
+		position: absolute !important;
+		top: var.$height_header_base;
+		bottom: 0;
+		height: auto;
+		min-height: 0;
+		@include mixin.transform(translate(0, 0));
+	}
+
+	.mm_app {
+		height: auto;
+	}
+
+	.mm_header {
+		z-index: 9999999999;
+		top: -#{var.$height_header_base};
+	}
+}
+//> 외부링크 페이지

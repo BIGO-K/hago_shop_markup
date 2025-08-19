@@ -1,0 +1,63 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../setting/const';
+@use '../setting/var';
+@use '../helper/mixin';
+
+
+//< 메뉴 + 상품
+.m_ui-mp {
+	.m_ui-menu-tab {
+		+ .mm_carousel {
+			margin-top: 11px;
+
+			.mm_carousel-list {
+				box-sizing: content-box;
+				padding-bottom: 37px;
+			}
+
+			.mm_carousel-item {
+				> .mm_product-list {
+					padding: 0 14px;
+				}
+			}
+
+			.mm_carousel-pagination {
+				bottom: 0;
+			}
+		}
+	}
+}
+//> 메뉴 + 상품
+
+//< 배너 + 상품
+.m_ui-bp {
+	.m_ui-item {
+		+ .m_ui-item {
+			margin-top: 30px;
+		}
+	}
+
+	.m_ui-banner {
+		padding: 0 14px;
+
+		> a {
+			display: block;
+		}
+
+		.image_banner {
+			position: relative;
+			width: 100%;
+		}
+
+		+ .mm_scroller {
+			margin-top: 12px;
+		}
+
+		+ .m_ui-prod-carousel {
+			margin-top: 36px;
+		}
+	}
+}
+//> 배너 + 상품

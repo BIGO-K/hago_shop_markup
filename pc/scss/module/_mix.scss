@@ -1,0 +1,280 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../setting/const';
+@use '../setting/var';
+@use '../helper/mixin';
+
+
+//< 메뉴 + 상품
+.m_ui-mp {
+	[class*="-title"] {
+		+ .m_ui-item {
+			.__tab_dot__ {
+				margin-top: -7px;
+			}
+		}
+	}
+
+	.m_ui-sub-title {
+		padding-bottom: 37px;
+
+		@include mixin.context-before('.m_ui-title +') {
+			margin-top: -18px;
+		}
+	}
+
+	.m_ui-menu-tab {
+		&.__tab_box__ {
+			+ .mm_carousel {
+				margin-top: 30px;
+			}
+		}
+
+		&.__tab_dot__ {
+			+ .mm_carousel {
+				margin-top: 18px;
+			}
+		}
+	}
+
+	.mm_carousel {
+		&-control {
+			button {
+				width: 28px;
+				height: 54px;
+				background-color: #fff;
+				@include mixin.font('17px/54px');
+
+				&:disabled {
+					background-color: rgba(#fff, 0.54);
+				}
+			}
+
+			.btn_carousel-prev {
+				padding-right: 10px;
+				border-radius: 0 30px 30px 0;
+			}
+
+			.btn_carousel-next {
+				padding-left: 10px;
+				border-radius: 30px 0 0 30px;
+			}
+		}
+	}
+}
+//> 메뉴 + 상품
+
+//< 배너 + 상품
+.m_ui-bp {
+	.m_ui-item {
+		.m_ui-banner {
+			> a {
+				display: block;
+			}
+
+			.image_banner {
+				padding-top: 370px;
+				width: 100%;
+			}
+		}
+	}
+
+	&:not([class*="_banner_"]) {
+		.m_ui-title {
+			text-align: left;
+		}
+
+		.m_ui-sub-title {
+			padding-bottom: 35px;
+
+			@include mixin.context-before('.m_ui-title +') {
+				margin-top: -18px;
+			}
+		}
+
+		.m_ui-banner {
+			figure {
+				position: relative;
+
+				figcaption {
+					position: absolute;
+					z-index: 1;
+					top: 50%;
+					right: 0;
+					left: 0;
+					margin-top: -5px;
+					padding: 0 50px;
+					@include mixin.font(#fff '30px/1.4' center);
+					@include mixin.transform(translateY(-50%));
+
+					.text_sub {
+						font-size: 20px;
+
+						@include mixin.context-before ('.text_main +') {
+							margin-top: 5px;
+						}
+					}
+				}
+
+				&::after {
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					background-color: rgba(#000, 0.2);
+					content: '';
+				}
+			}
+		}
+
+		.mm_flex {
+			.m_ui-banner {
+				.image_banner {
+					padding-top: 311px;
+					width: 100%;
+				}
+			}
+		}
+
+		.mm_slider {
+			margin-top: 24px;
+
+			h4 {
+				padding: 16px 0 24px;
+				@include mixin.font('26px/1.4');
+			}
+
+			.mm_slider-inner {
+				padding-bottom: 52px;
+			}
+
+			.mm_slider-item {
+				width: 276px;
+			}
+		}
+	}
+
+	&.__banner_left__ {
+		position: relative;
+
+		> [class*="-title"] {
+			position: absolute;
+			top: 36px;
+			left: 534px;
+			padding: 0;
+
+			&.m_ui-sub-title {
+				top: 96px;
+				padding-left: 3px;
+			}
+		}
+
+		.m_ui-item {
+			@include mixin.clearfix();
+		}
+
+		.m_ui-banner {
+			float: left;
+			width: 500px;
+
+			.image_banner {
+				padding-top: 530px;
+			}
+
+			figure {
+				position: relative;
+
+				figcaption {
+					position: absolute;
+					z-index: 1;
+					top: 50%;
+					right: 0;
+					left: 0;
+					margin-top: -2px;
+					padding: 0 50px;
+					@include mixin.font(#fff 300 '24px/1.4' center);
+					@include mixin.transform(translateY(-50%));
+
+					.text_main {
+						@include mixin.font(700 '32px');
+
+						+ .text_sub {
+							margin-top: 19px;
+						}
+					}
+				}
+
+				&::after {
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					background-color: rgba(#000, 0.27);
+					content: '';
+				}
+			}
+		}
+
+		.mm_product-list {
+			float: right;
+			margin-top: 152px;
+			width: 828px;
+
+			&.mm_slider  {
+				.mm_slider-inner {
+					margin: 0 -8px;
+				}
+
+				li {
+					padding: 0 8px;
+					width: 211px;
+				}
+			}
+		}
+	}
+
+	&.__block_both__ {
+		font-size: 0;
+
+		.m_ui-title {
+			text-align: center;
+		}
+
+		.m_ui-sub-title {
+			padding-bottom: 33px;
+			text-align: center;
+
+			@include mixin.context-before('.m_ui-title') {
+				margin-top: -18px;
+			}
+		}
+
+		.m_ui-item {
+			display: inline-block;
+			width: 670px;
+
+			&:nth-of-type(even) {
+				margin-left: 20px;
+			}
+
+			.mm_slider {
+				margin-top: 12px;
+
+				&-inner {
+					margin: 0 -6px;
+				}
+
+				&-list {
+					.mm_slider-item {
+						padding: 0 6px;
+						width: 227px;
+					}
+				}
+			}
+		}
+	}
+}
+//> 배너 + 상품

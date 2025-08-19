@@ -1,0 +1,133 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../setting/const';
+@use '../setting/var';
+@use '../helper/mixin';
+
+
+//< 공통
+[class*="m_company-"] {
+	padding: 54px 0 58px;
+	@include mixin.font(#fff '14px/20px' center);
+
+	h3 {
+		@include mixin.font(700 '27px/38px');
+		padding: 0 14px;
+
+		+ p {
+			margin-top: 10px;
+		}
+	}
+
+	p {
+		margin-top: 24px;
+		padding: 0 20px;
+	}
+}
+//> 공통
+
+//< 회사소개
+.m_company- {
+	&about {
+		position: relative;
+		padding: 0;
+
+		&:first-child {
+			h3 {
+				font-weight: 400;
+
+				strong {
+					display: block;
+					font-weight: 700;
+				}
+
+				&::after {
+					display: block;
+					margin: 30px auto 0;
+					width: 60px;
+					border-bottom: 4px solid #fff;
+					content: '';
+				}
+			}
+
+			p {
+				@include mixin.font('17px/24px');
+			}
+		}
+
+		> i {
+			padding-top: 180%;
+			width: 100%;
+		}
+
+		.text_content {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			left: 0;
+			@include mixin.font('13px/19px');
+			@include mixin.transform(translateY(-50%));
+
+			> span {
+				display: block;
+				padding-bottom: 22px;
+			}
+
+			h3 + p {
+				margin-top: 21px;
+			}
+		}
+	}
+
+	&with {
+		color: var.$color_main_base;
+
+		.image_company {
+			margin-top: 28px;
+			padding: 21px 14px;
+		}
+	}
+
+	&news {
+		padding: 57px 0 58px;
+		background-color: var.$color_main_base;
+
+		h3 {
+			font-size: 26px;
+
+			+ p {
+				margin: 5px 0 18px;
+			}
+		}
+
+		ul {
+			margin: -20px 0 0 -19px;
+			padding: 0 20px;
+
+			li {
+				float: left;
+				margin: 20px 0 0 19px;
+				width: 42.13333vw;
+				height: 40vw;
+			}
+
+			a {
+				display: block;
+				position: relative;
+				padding: 15px 8px 50px 10px;
+				height: 100%;
+				background-color: #fff;
+				@include mixin.font(var.$color_main_base left);
+
+				span {
+					position: absolute;
+					left: 10px;
+					bottom: 16px;
+					font-size: 12px;
+				}
+			}
+		}
+	}
+}
+//> 회사소개

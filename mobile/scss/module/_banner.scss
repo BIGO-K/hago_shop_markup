@@ -1,0 +1,288 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../setting/const';
+@use '../setting/var';
+@use '../helper/mixin';
+
+
+//< 고정
+.m_ui-banner {
+	.m_ui-item {
+		> a {
+			display: block;
+		}
+
+		figure {
+			position: relative;
+		}
+
+		.image_banner {
+			position: relative;
+			width: 100%;
+		}
+	}
+
+	&:not([class*="_banner_"]) {
+		.image_banner {
+			padding-top: 100%;
+		}
+
+		figure {
+			position: relative;
+
+			&::after {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-color: rgba(#000, 0.27);
+				content: '';
+			}
+
+			figcaption {
+				position: absolute;
+				z-index: 1;
+				top: 50%;
+				right: 0;
+				left: 0;
+				padding: 0 14px;
+				@include mixin.font(#fff 700 '22px/32px' center);
+				@include mixin.transform(translateY(-50%));
+
+				.text_sub {
+					margin-top: 7px;
+					@include mixin.font(300 '17px/24px');
+				}
+			}
+		}
+	}
+
+	&.__banner_rect__ {
+		.image_banner {
+			padding-top: 63.40057%;
+		}
+
+		figcaption {
+			margin-top: 10px;
+			padding: 0 7px;
+			font-size: 17px;
+
+			> p {
+				@include mixin.text-ellipsis(1);
+			}
+
+			.text_sub {
+				margin-top: 3px;
+				@include mixin.font(#6a6a6a'13px');
+			}
+		}
+	}
+}
+//> 고정
+
+//< 캐러셀
+.m_ui-banner-carousel {
+	&.__banner_hero__ {
+		.mm_carousel {
+			&-list {
+				padding-top: 149.33333%;
+			}
+
+			&-item {
+				top: 0;
+
+				.image_banner {
+					padding-top: 149.33333%;
+					width: 100%;
+				}
+
+				figcaption {
+					position: absolute;
+					right: 0;
+					bottom: 12.32142%;
+					left: 0;
+					padding: 0 8.26666%;
+					@include mixin.font(#fff '15px/1.4');
+
+					[class*="text_main"] {
+						@include mixin.text-ellipsis(1);
+						font-size: 27px;
+					}
+
+					.text_sub1 {
+						@include mixin.text-ellipsis(1);
+						margin-top: 8px;
+					}
+
+					.text_sub2 {
+						@include mixin.text-ellipsis(1);
+						margin-top: 20px;
+						padding-right: 50px;
+						font-weight: 700;
+					}
+
+					&.__text_black__ {
+						color: #000;
+					}
+				}
+			}
+
+			&-count {
+				right: 5.33333%;
+				bottom: 12.14285%;
+				padding: 0 10px;
+				border-radius: 26px;
+				background-color: rgba(#101010, 0.46);
+				font-size: 0;
+
+				> * {
+					@include mixin.font(#cdcdcd 300 '15px/26px' [var.$fontFamily_latin]);
+				}
+
+				.text_carousel-index {
+					@include mixin.font(#fff 500);
+				}
+
+				.text_carousel-total::before {
+					content: '/';
+				}
+			}
+		}
+	}
+
+	&.__banner_card__ {
+		.mm_carousel {
+			&-inner {
+				padding-right: 3.73333vw;
+			}
+
+			&-list {
+				box-sizing: content-box;
+				padding-top: 100%;
+				height: 86px;
+			}
+
+			&-item {
+				top: 0;
+				background-color: transparent;
+
+				.image_banner {
+					padding-top: 100%;
+					width: 100%;
+				}
+
+				figcaption {
+					padding: 12px 9px 0px;
+					height: 86px;
+					@include mixin.opacity(0);
+					@include mixin.transition(opacity, const.$time_base);
+
+					.text_main {
+						padding-bottom: 5px;
+						@include mixin.text-ellipsis(1);
+						@include mixin.font('20px/28px');
+					}
+
+					[class*="text_sub"] {
+						overflow: hidden;
+						padding-right: 60px;
+						height: 19px;
+						@include mixin.font(#4a4a4a '13px/19px');
+					}
+				}
+
+				&.__carousel- {
+					&next figcaption,
+					&on figcaption {
+						@include mixin.opacity(1);
+					}
+
+					&prev figcaption {
+						@include mixin.opacity(0);
+					}
+				}
+			}
+
+			&-control {
+				position: absolute;
+				z-index: 3;
+				top: 50%;
+				right: 3.87811%;
+				left: 0;
+
+				> button {
+					top: -44px;
+					padding: 12px;
+					font-size: 33px;
+					@include mixin.opacity(0.7);
+					@include mixin.transform(translateY(-50%));
+
+					&.btn_carousel-prev {
+						left: 0;
+					}
+
+					&.btn_carousel-next {
+						right: 0;
+					}
+				}
+			}
+
+			&-count {
+				right: 24px;
+				bottom: 0;
+				padding: 0 11px;
+				height: 22px;
+				border: 1px solid #eee;
+				border-radius: 11px;
+				background-color: #f5f5f5;
+				font-size: 0;
+
+				> * {
+					@include mixin.font(#8c8c8c 300 '12px/20px' [var.$fontFamily_latin]);
+				}
+
+				.text_carousel-index {
+					@include mixin.font(var.$color_text_base 500);
+				}
+
+				.text_carousel-total::before {
+					padding: 0 3px;
+					content: '/';
+				}
+			}
+		}
+	}
+
+	&.__banner_ribbon__ {
+		.mm_carousel {
+			&-item {
+				.mm_image-none {
+					position: relative;
+					height: 120px;
+					background-color: #f5f5f5;
+
+					&::after {
+						position: absolute;
+						top: 50%;
+						right: 8px;
+						left: 8px;
+						@include mixin.font(#a3a3a3 '12px/17px' center, normal);
+						content: attr(data-ir);
+						@include mixin.transform(translateY(-50%));
+					}
+
+					.mco_none {
+						display: none;
+					}
+				}
+			}
+
+			&-pagination {
+				bottom: 9px;
+			}
+		}
+	}
+}
+//> 캐러셀

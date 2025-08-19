@@ -1,0 +1,109 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../setting/const';
+@use '../setting/var';
+@use '../helper/mixin';
+
+//< 사이드
+.mm_sidebar {
+	$size_sidebar_content: 56px;
+	$size_sidebar_content_sm: 44px;
+
+	position: relative;
+	z-index: const.$zIndex_sidebar;
+	height: 0;
+
+	&.__sidebar-sm {
+		.mm_sidebar-rside-inner {
+			@include mixin.transform(scale(0.8));
+		}
+
+		.btn_direct {
+			font-size: 15px;
+
+			span {
+				margin-top: 6px;
+			}
+		}
+
+		[class*="btn_anchor"] {
+			font-size: 20px;
+		}
+	}
+
+	&.__sidebar-up {
+		.mm_sidebar-rside {
+			@include mixin.transform(translate(-50%, -111px));
+		}
+	}
+
+	&.__sidebar-upper {
+		.mm_sidebar-rside {
+			@include mixin.transform(translate(-50%, -298px));
+		}
+	}
+
+	&-rside {
+		position: fixed;
+		bottom: 20px;
+		left: 50%;
+		width: 100%;
+		max-width: var.$minWidth_extend;
+		height: 0;
+		@include mixin.transform(translateX(-50%));
+
+		&-inner {
+			overflow: hidden;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width: $size_sidebar_content;
+			height: 76px;
+			@include mixin.prefix(transform-origin, 100% 100%, webkit ms);
+			@include mixin.transition(transform const.$time_fast);
+
+			> a {
+				display: block;
+				text-align: center;
+			}
+		}
+
+		.btn_direct {
+			font-size: 13px;
+
+			span {
+				display: block;
+				margin-top: 7px;
+				white-space: nowrap;
+			}
+
+			+ [class*="btn_anchor"] {
+				margin-top: 20px;
+			}
+		}
+
+		[class*="btn_anchor"] {
+			margin-top: 6px;
+			width: $size_sidebar_content;
+			height: $size_sidebar_content;
+			border: 1px solid #dcdcdc;
+			border-radius: 100%;
+			background-color: #fff;
+			@include mixin.font(#4a4a4a '18px/#{$size_sidebar_content - 2px}');
+			@include mixin.opacity(0);
+		}
+
+		.btn_kakaoplus {
+			width: 56px;
+			height: 57px;
+			@include mixin.background(url('https://image.hago.kr/mall/ui/pc/content/side_kakaoplus.png') '0 0/contain' no-repeat);
+			@include mixin.opacity(0);
+
+			+ .btn_anchor-up {
+				margin-top: 17px;
+			}
+		}
+	}
+}
+//> 사이드바

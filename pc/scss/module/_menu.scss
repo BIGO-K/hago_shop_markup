@@ -1,0 +1,127 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../setting/const';
+@use '../setting/var';
+@use '../helper/mixin';
+
+
+//< 탭
+.m_ui-menu-tab {
+	&.__tab_box__ {
+		ul {
+			margin: -10px 0 0 -10px;
+
+			li {
+				float: left;
+				margin: 10px 0 0 10px;
+			}
+		}
+
+		button {
+			padding: 0 23px;
+			height: 54px;
+			border: 1px solid #e6e6e6;
+			border-radius: 3px;
+			@include mixin.font(#4a4a4a '17px/50px' center);
+
+			&.__category-on {
+				border-color: var.$color_main_base;
+				color: var.$color_main_base;
+			}
+		}
+	}
+
+	&.__tab_dot__ {
+		padding: 0 49px;
+		text-align: center;
+
+		.mm_slider {
+			&-inner {
+				margin: 0 -24px;
+			}
+
+			&-item {
+				padding: 0 24px;
+
+				button {
+					position: relative;
+					padding: 10px 13px;
+					@include mixin.font(#999 '20px/1.4', nowrap);
+
+					&.__category-on {
+						@include mixin.font(var.$color_main_base 700);
+
+						&::before {
+							position: absolute;
+							top: 3px;
+							left: 50%;
+							margin-left: -2px;
+							width: 4px;
+							height: 4px;
+							background-color: var.$color_main_base;
+							content: '';
+						}
+					}
+				}
+			}
+
+			&-control {
+				button {
+					top: 0;
+					width: 49px;
+					height: 48px;
+					background-color: #fff;
+					@include mixin.font('20px/48px' center);
+
+					&:disabled {
+						color: #dadada;
+					}
+				}
+
+				.btn_slider-prev {
+					left: 0;
+					padding-right: 12px;
+					@include mixin.linear-gradient(transparent, 90deg, #fff 70%, transparent 100%);
+				}
+
+				.btn_slider-next {
+					right: 0;
+					padding-left: 12px;
+					@include mixin.linear-gradient(transparent, -90deg, #fff 70%, transparent 100%);
+				}
+			}
+		}
+	}
+}
+//> 탭
+
+//< 링크
+.m_ui-menu- {
+	&category {
+		height: 60px;
+		font-size: 0;
+
+		li {
+			border: 1px solid #cdcdcd;
+
+			&:nth-of-type(n+2) {
+				margin-left: -1px;
+			}
+		}
+
+		a {
+			display: block;
+			overflow: hidden;
+			padding: 0 5px;
+			@include mixin.font(#7b7b7b '17px/58px' center);
+		}
+	}
+}
+//> 링크
+
+//< 슬라이더
+// .m_ui-menu-slider {
+
+// }
+//> 슬라이더

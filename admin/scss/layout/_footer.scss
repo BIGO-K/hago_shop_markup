@@ -1,0 +1,61 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../setting/const';
+@use '../setting/var';
+@use '../helper/mixin';
+
+
+//< 푸터영역
+.mm_footer {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: var.$height_footer_base;
+	border-top: 1px solid #eee;
+	background-color: #f9f9f9;
+	@include mixin.clearfix;
+
+	.mm_lside {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 33px;
+
+		h6 {
+			margin-top: 15px;
+			width: 116px;
+			height: 13px;
+			@include mixin.background(url('https://image.hago.kr/mall/ui/admin/common/logo.svg') '50% 50%/contain' no-repeat);
+			@include mixin.opacity(0.2);
+		}
+	}
+
+	.mm_rside {
+		position: absolute;
+		top: 0;
+		right: 40px;
+		bottom: 0;
+
+		> *:nth-child(n+2) {
+			margin-left: 2px;
+		}
+
+		.mm_btn {
+			margin-top: 10px;
+
+			.image_logo {
+				margin: 7px 5px 0px 1px;
+				width: 44px;
+				height: 9px;
+				@include mixin.background(url('https://image.hago.kr/mall/ui/admin/common/logo.svg') '0 0/contain' no-repeat);
+			}
+
+			.ico_link {
+				margin: 9px 1px 0 3px;
+			}
+		}
+	}
+}
+//> 푸터영역

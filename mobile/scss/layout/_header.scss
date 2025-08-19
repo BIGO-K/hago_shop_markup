@@ -1,0 +1,172 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../setting/const';
+@use '../setting/var';
+@use '../helper/mixin';
+
+
+//< 헤더영역
+.mm_header {
+	position: absolute;
+	z-index: const.$zIndex_header;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: var.$height_header_base;
+	background-color: #fff;
+	border-bottom: 1px solid #e6e6e6;
+	text-align: center;
+	@include mixin.transition(transform const.$time_fast);
+	@include mixin.clearfix();
+
+	.__header-hide & {
+		border-bottom: 0;
+		@include mixin.transform(translateY(-100%));
+	}
+
+	h1 {
+		margin-top: 10px;
+		max-width: 100%;
+
+		b:not(.mm_ir-blind) {
+			display: block;
+			padding: 0 87px;
+			font-size: 16px;
+			@include mixin.text-ellipsis(1);
+		}
+	}
+
+	.mm_lside {
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding-left: 4px;
+		height: var.$height_header_base;
+		line-height: var.$height_header_base;
+
+		> * {
+			float: left;
+			position: relative;
+			padding: 0 10px;
+			height: 100%;
+		}
+
+		.btn_back {
+			@include mixin.font(#4a4a4a '21px/46px');
+		}
+
+		.btn_home {
+			margin-left: 1px;
+			@include mixin.font(#4a4a4a '19px');
+		}
+	}
+
+	.mm_rside {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding-right: 9px;
+		height: var.$height_header_base;
+		line-height: var.$height_header_base;
+
+		> * {
+			float: left;
+			position: relative;
+			margin-left: 4px;
+			padding: 0 10px;
+			height: 100%;
+		}
+
+		.mco_search {
+			@include mixin.font(#4a4a4a '21px');
+		}
+
+		.mco_cart {
+			@include mixin.font(#4a4a4a '25px/47px');
+
+			+ .text_badge {
+				position: absolute;
+				top: 18px;
+				right: 0;
+				left: 0;
+				@include mixin.font(var.$color_primary_base 700 '12px/16px' [var.$fontFamily_latin] center);
+			}
+		}
+	}
+
+	html[class*="_main_"] & {
+		height: var.$height_header_main;
+		border-top: 3px solid var.$color_main_base;
+		border-bottom: 0;
+
+		h1 {
+			margin-top: 11px;
+
+			a {
+				padding: 8px 5px 11px;
+
+				.image_logo {
+					width: 87px;
+					height: 17px;
+					@include mixin.background(url('https://image.hago.kr/mall/ui/mobile/common/logo.svg') '50% 50%/contain' no-repeat);
+				}
+			}
+		}
+
+		.mm_rside {
+			top: 10px;
+			height: 35px;
+			line-height: 37px;
+
+			.mco_search {
+				@include mixin.font(#4a4a4a '20px' center);
+			}
+
+			.mco_cart {
+				line-height: 37px;
+
+				+ .text_badge {
+					top: 13px;
+				}
+			}
+		}
+	}
+
+	> .btn_search {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 35px;
+		@include mixin.font(#b8b8b9 '21px/44px');
+
+		b {
+			display: block;
+			@include mixin.text-ellipsis(1);
+			padding: 0 82px 0 2px;
+			height: 100%;
+			@include mixin.font(var.$color_text_base '16px/42px' left);
+		}
+
+		.mco_search {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 5px;
+			width: 49px;
+			color: #4c4c4c !important;
+		}
+
+		.mco_form-clear {
+			position: absolute;
+			top: 0;
+			right: 58px;
+			bottom: 0;
+			margin-top: 1px;
+			width: 24px;
+			font-size: 17px;
+		}
+	}
+}
+//> 헤더영역

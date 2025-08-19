@@ -1,0 +1,72 @@
+@charset 'utf-8';
+
+
+//< 컬러
+$color_main_base: #003148;
+
+$color_primary_base: #14b4c1;
+
+$color_secondary_base: #ff4800;
+$color_secondary_light: #f2953a;
+
+$color_negative_base: #ee4f10;
+
+$color_level5: #fba31e;
+$color_level4: #4ab7ee;
+$color_level3: #63cfdb;
+$color_level2: #9ee8db;
+$color_level1: #dcdcdc;
+
+$color_text_base: #101010;
+//> 컬러
+
+//< 폰트
+$fontFamily_base: 'Brown', 'Apple SD Gothic Neo', '맑은 고딕', 'Malgun Gothic', 'Noto Sans KR', 'Dotum', '돋움', sans-serif;
+$fontFamily_latin: 'Brown', 'Apple SD Gothic Neo', '맑은 고딕', 'Malgun Gothic', 'Noto Sans KR', 'Dotum', '돋움', sans-serif;
+$fontFamily_password: $fontFamily_base;
+
+$fontPath: 'https://image.hago.kr/mall/ui/font/';
+//> 폰트
+
+//< 최소사이즈
+$minWidth_base: 320px;
+$minWidth_extend: $minWidth_base + 200px;
+//> 최소사이즈
+
+//< 레이아웃
+$height_gnb: 42px;
+
+$height_header_base: 45px;
+$height_header_extend: 57px;
+$height_header_main: 56px;
+
+$height_footer_base: 129px;
+
+$height_toolbar_base: 51px;
+
+$height_lowbtn_base: 60px;
+
+$height_modal_header: 45px;
+//> 레이아웃
+
+//< 폼
+$borderColor_form_base: #cdcdcd;
+$borderRadius_form_base: 3px;
+$color_form_base: #101010;
+$fontSize_form_text_base: 15px;
+$fontSize_form_text_lg: 15px;
+
+$height_form_text_base: 42px;
+$height_form_text_lg: 50px;
+
+$height_form_check_base: 24px;
+$fontSize_form_check_base: 15px;
+
+$height_form_radio_base: 24px;
+$fontSize_form_radio_base: 15px;
+
+$height_form_select_base: 42px;
+$height_form_select_sm: 32px;
+$fontSize_form_select_base: 15px;
+$fontSize_form_select_sm: 14px;
+//> 폼

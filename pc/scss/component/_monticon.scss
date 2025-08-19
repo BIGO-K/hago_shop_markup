@@ -1,0 +1,313 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../setting/const';
+@use '../setting/var';
+@use '../helper/mixin';
+@use '../helper/function' as *;
+
+
+@include mixin.font-face('monticon', var.$fontPath + 'monticon');
+%monticon {
+	display: inline-block;
+	@include mixin.font(400 normal 'inherit/inherit' ['monticon']);
+	font-variant: normal;
+	text-decoration: inherit;
+	text-transform: none;
+	text-indent: 0;
+	letter-spacing: 0;
+	@include mixin.prefix(font_smoothing, antialiased, webkit moz);
+}
+
+[class^="mco_"],
+[class*=" mco_"] {
+	@at-root .mco,
+	&::before {
+		@extend %monticon;
+	}
+}
+
+//< 모션
+.__mco-spin {
+	@include mixin.prefix(animation, frame-spin 1.5s infinite linear, webkit);
+}
+
+@include mixin.keyframes(frame-spin) {
+	0% {
+		@include mixin.transform(rotate(0deg));
+	}
+	100% {
+		@include mixin.transform(rotate(359deg));
+	}
+}
+//> 모션
+
+//< 아이콘
+.mco_ {
+	&bom {
+		@include mixin.monticon('-alert', \ee4e);
+	}
+
+	&modal {
+		@include mixin.monticon('-close', \ff07);
+	}
+
+	&popup {
+		@include mixin.monticon('-close', \ff07);
+	}
+
+	&popover {
+		@include mixin.monticon('-help', \ec0c);
+	}
+
+	&tooltip {
+		@include mixin.monticon('-help', \ec0c);
+	}
+
+	&history {
+		@include mixin.monticon('-back', \e93f);
+	}
+
+	@include mixin.monticon('loading', \e834);
+
+	&anchor {
+		@include mixin.monticon('-up', \ec19);
+		@include mixin.monticon('-down', \ec16);
+	}
+
+	@include mixin.monticon('next', \e940);
+
+	&page {
+		@include mixin.monticon('-prev', \e93f);
+		@include mixin.monticon('-next', \e940);
+		@include mixin.monticon('-first', \e93f\e93f);
+		@include mixin.monticon('-last', \e940\e940);
+	}
+
+	&form {
+		@include mixin.monticon('-check', \e8d5);
+		@include mixin.monticon('-choice', \f06d);
+		@include mixin.monticon('-select', \e936);
+		@include mixin.monticon('-select-sm', \e93a);
+		@include mixin.monticon('-clear', \ee3e);
+		@include mixin.monticon('-valid', \ea6f);
+	}
+
+	&file {
+
+	}
+
+	&image {
+		@include mixin.monticon('-remove', \ff07);
+		@include mixin.monticon('', \ed06);
+		@include mixin.monticon('-multiple', \ff98);
+	}
+
+	&pw {
+		@include mixin.monticon('-show', \ed25);
+		@include mixin.monticon('-hide', \ed26);
+	}
+
+	&dropdown {
+		@include mixin.monticon('', \e93e);
+		@include mixin.monticon('-sm', \f107);
+		@include mixin.monticon('-xs', \e93a);
+		@include mixin.monticon('-bold', \e936);
+	}
+
+	&search {
+		@include mixin.monticon('', \ff05);
+		@include mixin.monticon('-brand', \ff39);
+		@include mixin.monticon('-postcode', \ff39);
+	}
+
+	@include mixin.monticon('blank', \e8dc);
+
+	&side {
+
+	}
+
+	@include mixin.monticon('delete', \e85d);
+
+	@include mixin.monticon('filter', \f1de);
+
+	@include mixin.monticon('close', \ff07);
+
+	&remove {
+		@include mixin.monticon('', \ff07);
+		@include mixin.monticon('-all', \e85d);
+	}
+
+	@include mixin.monticon('toggle', \e936);
+
+	@include mixin.monticon('cart', \ff95);
+
+	@include mixin.monticon('home', \e8e4);
+
+	@include mixin.monticon('menu', \ff02);
+
+	@include mixin.monticon('mypage', \ff9b);
+
+	@include mixin.monticon('shop', \e8e4);
+
+	@include mixin.monticon('brand', \e849);
+
+	@include mixin.monticon('ship', \ff09);
+
+	@include mixin.monticon('reload', \e953);
+
+	&note {
+		@include mixin.monticon('', \eb9d);
+		@include mixin.monticon('-alert', \ec0f);
+	}
+
+	&link {
+		@include mixin.monticon('', \e940);
+		@include mixin.monticon('-sm', \f105);
+		@include mixin.monticon('-xs', \e93c);
+		@include mixin.monticon('-circle', \ff27);
+		@include mixin.monticon('-arrow', \ff89);
+	}
+
+	&like {
+		@include mixin.monticon('', \ff18);
+		@include mixin.monticon('-full', \ff19);
+		@include mixin.monticon('-brand', \ff92);
+	}
+
+	&star {
+		@include mixin.monticon('', \ecfc);
+		@include mixin.monticon('-full', \ecfa);
+	}
+
+	&stars {
+		$stars: 0 1 2 3 4 5;
+		@each $score in $stars {
+			$star: unquote('');
+			@for $i from 1 through length($stars) - 1 {
+				@if $i <= $score {
+					$star: append($star, \ecfa);
+				}
+				@else {
+					$star: append($star, \ecfc);
+				}
+			}
+
+			@include mixin.monticon(if($score == 0, '', '-s#{$score}'), str-replace($star, ' '));
+		}
+	}
+
+	&sns {
+		@include mixin.monticon('-facebook', \f09a);
+		@include mixin.monticon('-naver', \ff11);
+		@include mixin.monticon('-apple', \f179);
+		@include mixin.monticon('-url', URL, var.$fontFamily_latin);
+		@include mixin.monticon('-kakaotalk', \ff21);
+	}
+
+	&rank {
+		@include mixin.monticon('-up', \ebb9);
+		@include mixin.monticon('-down', \ebb6);
+		@include mixin.monticon('-unchanged', \eaf4);
+		@include mixin.monticon('-new', new, var.$fontFamily_latin);
+	}
+
+	@include mixin.monticon('camera', \ff29);
+
+	@include mixin.monticon('share', \ff06);
+
+	@include mixin.monticon('add', \e8d9);
+
+	&more {
+		@include mixin.monticon('-down', \e93e);
+		@include mixin.monticon('-down-sm', \f107);
+		@include mixin.monticon('', \e938);
+		@include mixin.monticon('-plus', \e8d9);
+		@include mixin.monticon('-bold', \f004);
+	}
+
+	@include mixin.monticon('modify', \ff96);
+
+	@include mixin.monticon('clock', \ff93);
+
+	@include mixin.monticon('cs', \ff14);
+
+	@include mixin.monticon('email', \ff94);
+
+	@include mixin.monticon('phone', \ff80);
+
+	@include mixin.monticon('smile', \e800);
+
+	@include mixin.monticon('secret', \ff17);
+
+	@include mixin.monticon('reset', \e953);
+
+	&download {
+		@include mixin.monticon('', \ff08);
+		@include mixin.monticon('-complete', \ee3b);
+	}
+
+	@include mixin.monticon('view', \ed25);
+
+	&control {
+		@include mixin.monticon('-prev', \e93f);
+		@include mixin.monticon('-next', \e940);
+		@include mixin.monticon('-prev-thin', \ff9d);
+		@include mixin.monticon('-next-thin', \ff9c);
+	}
+
+	@include mixin.monticon('size', \ff91);
+
+	@include mixin.monticon('login', \ff99);
+
+	@include mixin.monticon('logout', \ff9a);
+
+	@include mixin.monticon('join', \ffa0);
+
+	&order {
+		@include mixin.monticon('-origin', \ffa4);
+	}
+
+	@include mixin.monticon('setup', \e918);
+
+	@include mixin.monticon('check', \ec08);
+
+	&review {
+		@include mixin.monticon('-write', \ec0e);
+		@include mixin.monticon('-photo', \e8d2);
+		@include mixin.monticon('-list', \ed0a);
+		@include mixin.monticon('-pencil', \ffaf);
+	}
+
+	&coupon {
+		@include mixin.monticon('-download', \ed2f);
+		@include mixin.monticon('-complete', \ee3b);
+	}
+
+	&option {
+		@include mixin.monticon('-remove', \ee3e);
+	}
+
+	@include mixin.monticon('plus', \ee3f);
+
+	&folder {
+		@include mixin.monticon('', \ffa1);
+		@include mixin.monticon('-open', \f115);
+		@include mixin.monticon('-add', \ffa2);
+	}
+
+	@include mixin.monticon('copy', \f24d);
+
+	@include mixin.monticon('sort', \ff97);
+
+	@include mixin.monticon('fold', \e941);
+
+	@include mixin.monticon('print', \e855);
+
+	@include mixin.monticon('guide', \ec0c);
+
+	@include mixin.monticon('write', \ec0e);
+
+	@include mixin.monticon('speech', \ee4d);
+}
+//> 아이콘

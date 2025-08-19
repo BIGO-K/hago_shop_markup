@@ -1,0 +1,783 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../setting/const';
+@use '../setting/var';
+@use '../helper/mixin';
+@use '../helper/extend';
+
+
+//< 메인
+.m_main- {
+	&popup {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+		background: rgba(0,0,0,0.7);
+		@include mixin.opacity(0);
+
+		&.__popup-on {
+			z-index: const.$zIndex_popup;
+			@include mixin.opacity(1);
+		}
+	}
+
+	&hero {
+		&.m_ui-banner-carousel {
+			.mm_carousel-item {
+				figcaption {
+					margin: -1px 0 0 -680px;
+					padding-left: 106px;
+					@include mixin.font(#fff left);
+					@include mixin.transform(translateY(-50%));
+				}
+			}
+		}
+	}
+
+	&selected {
+		margin-top: 63px;
+	}
+
+	&special {
+		margin-top: 89px;
+	}
+
+	&ribbon {
+		margin-top: 92px;
+
+		> .__banner_ribbon_both__ {
+			margin-top: -18px;
+		}
+	}
+
+	&new {
+		margin-top: 81px;
+	}
+
+	&only {
+		margin-top: 90px;
+
+		.m_ui-prod-slider {
+			background-color: var.$color_main_base;
+		}
+	}
+
+	&brand {
+		margin-top: 93px;
+
+		.m_ui-item:nth-of-type(n+3) {
+			margin-top: 50px;
+		}
+	}
+
+	&editorial {
+		margin-top: 71px;
+
+		.m_ui-title {
+			text-align: left;
+		}
+
+		> ul {
+			> li {
+				padding: 74px 0 72px;
+				font-size: 0;
+
+				&:first-of-type {
+					padding-top: 0;
+				}
+
+				&:nth-of-type(even) {
+					background-color: #f5f5f5;
+				}
+			}
+		}
+
+		&-content {
+			display: inline-block;
+			padding: 6px 50px 0 0;
+			width: 402px;
+
+			[class*="text_main"] {
+				@include mixin.font('26px/1.4');
+
+				+ .text_main2 {
+					margin-top: 2px;
+				}
+
+				+ [class*="text_sub"] {
+					margin-top: 17px;
+				}
+			}
+
+			[class*="text_sub"] {
+				@include mixin.font(#6a6a6a '15px/1.4');
+			}
+
+			.text_main1 {
+				font-weight: 700;
+			}
+
+			.text_md {
+				position: absolute;
+				bottom: 14px;
+				left: 0;
+				padding-left: 60px;
+				@include mixin.font(#4a4a4a '14px/49px');
+
+				&::before {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 50px;
+					height: 50px;
+					border-radius: 100%;
+					background-color: #ffd800;
+					content: ''
+				}
+
+				+ * {
+					margin-top: 11px;
+				}
+			}
+		}
+
+		.mm_slider {
+			display: inline-block;
+			width: 958px;
+
+			&-item {
+				background-color: transparent;
+			}
+		}
+
+		.btn_brand {
+			position: absolute;
+			bottom: 14px;
+			left: 0;
+
+			.mco_link-sm {
+				margin-left: 5px;
+				font-size: 12px;
+			}
+
+			&::before {
+				position: absolute;
+				top: -10px;
+				right: -10px;
+				bottom: -10px;
+				left: -10px;
+				content: '';
+			}
+		}
+	}
+
+	&funding {
+		padding: 63px 0 94px;
+		background-color: var.$color_main_base;
+
+		.m_ui-title {
+			color: #fff;
+		}
+
+		.mm_slider {
+			overflow: hidden;
+
+			&-inner {
+				margin: 0 -8px;
+				padding: 0 490px 44px;
+			}
+
+			&-list {
+				padding-top: 100px;
+				height: 580px;
+			}
+
+			&-item {
+				position: relative;
+				padding: 0 8px;
+				width: 396px;
+				background-color: transparent;
+				@include mixin.opacity(0.4);
+				@include mixin.transition(opacity const.$time_fast);
+
+				&.__slider-on {
+					z-index: 2;
+					@include mixin.opacity(1);
+
+					> a {
+						padding: 4px;
+						width: (396px - 8 * 2);
+					}
+
+					figcaption {
+						margin-top: 0;
+
+						.text_main {
+							font-size: 23px;
+						}
+
+						.text_brand {
+							font-size: 20px;
+
+							@include mixin.context-before('.text_main +') {
+								margin-top: 17px;
+							}
+						}
+
+						.text_save {
+							margin-top: 11px;
+							font-size: 34px;
+
+							strong {
+								font-size: 38px;
+							}
+						}
+
+						.text_period {
+							margin-top: 0;
+							font-size: 17px;
+						}
+					}
+				}
+
+				[class*="__ie1"] & {
+					&.__slider-on {
+						z-index: 0;
+						@include mixin.opacity(0.4);
+
+						> a {
+							padding: 0;
+							width: auto;
+						}
+
+						figcaption {
+							margin-top: -1px;
+
+							.text_main {
+								font-size: 17px;
+							}
+
+							.text_brand {
+								font-size: 14px;
+
+								@include mixin.context-before('.text_main +') {
+									margin-top: 20px;
+								}
+							}
+
+							.text_save {
+								margin-top: 14px;
+								font-size: 23px;
+
+								strong {
+									font-size: 26px;
+								}
+							}
+
+							.text_period {
+								margin-top: 3px;
+								font-size: 13px;
+							}
+						}
+					}
+
+					&.__slider-ie {
+						z-index: 2;
+						@include mixin.opacity(1);
+
+						> a {
+							padding: 4px;
+							width: (396px - 8 * 2);
+						}
+
+						figcaption {
+							margin-top: 0;
+
+							.text_main {
+								font-size: 23px;
+							}
+
+							.text_brand {
+								font-size: 20px;
+
+								@include mixin.context-before('.text_main +') {
+									margin-top: 17px;
+								}
+							}
+
+							.text_save {
+								margin-top: 11px;
+								font-size: 34px;
+
+								strong {
+									font-size: 38px;
+								}
+							}
+
+							.text_period {
+								margin-top: 0;
+								font-size: 17px;
+							}
+						}
+					}
+				}
+
+				> a {
+					display: block;
+					position: relative;
+				}
+
+				figure {
+					position: relative;
+					background-color: #fff;
+
+					.image_banner {
+						padding-top: 100%;
+						width: 100%;
+					}
+				}
+
+				figcaption {
+					position: absolute;
+					top: 50%;
+					left: 0;
+					margin-top: -1px;
+					width: 100%;
+					@include mixin.font(#fff '17px/1.4' center);
+					@include mixin.transform(translateY(-50%));
+
+					.text_brand {
+						font-size: 14px;
+
+						@include mixin.context-before('.text_main +') {
+							margin-top: 20px;
+						}
+					}
+
+					.text_save {
+						margin-top: 14px;
+						vertical-align: 0;
+						@include mixin.font(700 '23px/1.4');
+
+						strong {
+							vertical-align: 0;
+							@include mixin.font('26px' [var.$fontFamily_latin]);
+						}
+					}
+
+					.text_period {
+						margin-top: 3px;
+						font-size: 13px;
+					}
+				}
+			}
+
+			&-control {
+				> button {
+					top: 50%;
+					margin-top: -64px;
+					padding: 10px 20px;
+					width: auto;
+					height: auto;
+					background-color: transparent;
+					@include mixin.font(#fff '47px/1.4');
+				}
+
+				.btn_slider-prev {
+					left: 0;
+					border-radius: 0 30px 30px 0;
+				}
+
+				.btn_slider-next {
+					right: 0;
+					border-radius: 30px 0 0 30px;
+				}
+			}
+
+			&-pagination {
+				bottom: 0;
+
+				.btn_slider-page {
+					background-color: rgba(#fff, 0.2);
+
+					&.__slider-on {
+						background-color: #fff;
+					}
+				}
+			}
+		}
+	}
+
+	&hot {
+		margin-top: 81px;
+
+		.m_ui-title {
+			text-align: left;
+		}
+
+		.m_ui-sub-title {
+			@include mixin.font(var.$color_main_base 700 '20px');
+		}
+	}
+
+	&what {
+		margin-top: 109px;
+	}
+
+	&hagoary {
+		margin-top: 91px;
+
+		.m_ui-item:nth-of-type(n+3) {
+			margin-top: 50px;
+		}
+
+		.m_ui-bp {
+			[class*="-title"] {
+				text-align: left;
+			}
+		}
+	}
+
+	&starlight {
+		margin-top: 100px;
+
+		.m_ui-bp {
+			.m_ui-item {
+				.m_ui-banner {
+					figure {
+						figcaption {
+							margin-top: 0;
+							font-size: 34px;
+
+							.text_sub {
+								font-size: 23px;
+
+								@include mixin.context-before('.text_main +') {
+									margin-top: 13px;
+								}
+							}
+						}
+					}
+				}
+
+				+ .m_ui-item {
+					margin-top: 67px;
+				}
+			}
+
+			.mm_slider {
+				margin-top: 30px;
+
+				.mm_slider-inner {
+					padding-bottom: 0;
+				}
+			}
+
+			+ .m_ui-bp {
+				margin-top: 50px;
+			}
+		}
+	}
+
+	&event {
+		margin-top: 81px;
+
+		.m_ui-title {
+			text-align: left;
+		}
+
+		.mm_promo-list {
+			figcaption {
+				height: 50px;
+
+				> p {
+					display: block;
+					@include mixin.text-ellipsis(1);
+				}
+			}
+		}
+	}
+
+	&journal {
+		margin-top: 49px;
+		@extend %journalList !optional;
+	}
+
+	&myhago {
+		margin-top: 78px;
+
+		h3 {
+			font-size: 38px;
+
+			+ p {
+				margin-top: 17px;
+				@include mixin.font(#6a6a6a '18px/28px');
+			}
+		}
+
+		ul {
+			margin: 32px 0 0 -1px;
+
+			li {
+				float: left;
+				margin: 1px 0 0 1px;
+				width: 271px;
+
+				> a {
+					display: block;
+				}
+			}
+		}
+
+		figure {
+			position: relative;
+
+			&::before {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-color: rgba(#101010, 0.2);
+				content: '';
+			}
+
+			.image_banner {
+				padding-top: 100%;
+				width: 100%;
+			}
+
+			figcaption {
+				position: absolute;
+				right: 0;
+				bottom: 38px;
+				left: 0;
+				padding: 0 10px;
+				@include mixin.font(#fff '17px' center);
+
+				> p {
+					@include mixin.text-ellipsis(1);
+				}
+
+				.text_sub {
+					font-size: 13px;
+
+					@include mixin.context-before('.text_main +') {
+						margin-top: 9px;
+					}
+				}
+			}
+		}
+	}
+}
+//> 메인
+
+//< 레이어팝업
+.m_main-popup {
+	position: fixed;
+	z-index: -1;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.7);
+	@include mixin.opacity(0);
+	@include mixin.transition(opacity const.$time_fast);
+
+
+	&.__on {
+		z-index: const.$zIndex_popup;
+		@include mixin.opacity(1);
+	}
+
+	&-item {
+		overflow: hidden;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 400px;
+		background-color: #fff;
+		@include mixin.transform(translate(-50%, -50%));
+	}
+
+	.mm_carousel {
+		border-bottom: 1px solid #b9b9b9;
+
+		.mm_carousel-item {
+			> a {
+				text-align: center;
+				display: block;
+			}
+		}
+
+		.mm_carousel-pagination {
+			bottom: 14px;
+
+			.btn_carousel-page {
+				background-color: rgba(#000, 0.5);
+
+				&:nth-child(n+2) {
+					margin-left: 6px;
+				}
+
+				&.__carousel-on {
+					width: 29px;
+					background-color: rgba(#000, 1);
+				}
+			}
+		}
+	}
+
+	&-close {
+		padding: 12px 0 0 14px;
+		height: 45px;
+
+		.btn_popup-close {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			padding: 13px 17px;
+			font-size: 14px;
+
+			.mco_close {
+				margin-left: 5px;
+				@include mixin.font('10px/17px');
+			}
+		}
+	}
+}
+//> 레이어팝업
+
+//< 타임특가
+.m_timesale {
+	position: relative;
+	margin-left: (-136px - 16);
+
+	&.__switch-on {
+		.m_timesale-content {
+			visibility: inherit;
+			@include mixin.opacity(1);
+			@include mixin.transform(translateX(0) scale(1));
+			@include mixin.transition(visibility 0s, opacity const.$time_fast, transform const.$time_fast);
+		}
+	}
+
+	&.__sticky-on {
+		&.__sticky-left {
+			.m_timesale-inner {
+				left: 0;
+			}
+		}
+
+		.m_timesale-inner {
+			position: fixed;
+			top: var.$height_header_sm + 31px;
+		}
+
+		.m_timesale-content {
+			top: 2px;
+			bottom: auto;
+			@include mixin.prefix(transform-origin, 0 0, webkit ms);
+		}
+	}
+
+	&-inner {
+		position: absolute;
+		z-index: const.$zIndex_floating;
+
+		.image_badge {
+			width: 136px;
+			height: 136px;
+		}
+	}
+
+	&-content {
+		visibility: hidden;
+		@include mixin.prefix(box-shadow, 2px 0 6px 0 rgba(#000, 0.14), webkit);
+		position: absolute;
+		bottom: 3px;
+		left: 151px;
+		width: 508px;
+		height: 272px;
+		background-color: #fff;
+		@include mixin.opacity(0);
+		@include mixin.transform(translateX(-70px) scale(0.5), 0 100%);
+		@include mixin.transition(visibility 0s const.$time_fast, opacity const.$time_fast, transform const.$time_fast);
+
+		> p {
+			padding: 22px 11px 0;
+			height: 65px;
+			@include mixin.font(500 '24px/30px' center [var.$fontFamily_latin], 0);
+
+			b {
+				margin: 4px 6px 0 0;
+				padding: 0 11px 0 12px;
+				height: 25px;
+				border-radius: 13px;
+				background-color: var.$color_primary_base;
+				@include mixin.font(#fff '15px/25px' [var.$fontFamily_base]);
+
+				.mco_clock {
+					margin: 1px 5px 0 0;
+					font-size: 14px;
+
+					.__ie11 & { margin-top: 2px; }
+				}
+
+				&.__time_schedule__ {
+					background-color: #5c5c5c;
+				}
+			}
+
+			span {
+				padding: 0 2px;
+				@include mixin.font('28px/34px');
+			}
+
+			.__ie11 & { line-height: 24px; }
+		}
+
+		.mm_carousel {
+			.mm_carousel-list {
+				margin: 0 auto 12px;
+				width: 455px !important;
+				height: 158px;
+			}
+
+			.mm_carousel-item {
+				padding:0 6px;
+
+				a {
+					overflow: hidden;
+					border-radius: 10px;
+				}
+			}
+
+			.image_banner {
+				width: 444px;
+				height: 158px;
+			}
+
+			.mm_carousel-pagination {
+				.btn_carousel-page {
+					width: 7px;
+					height: 7px;
+
+					&:nth-child(n+2) {
+						margin-left: 7px;
+					}
+
+					&.__carousel-on {
+						width: 7px;
+						background-color: var.$color_primary_base;
+					}
+				}
+			}
+		}
+	}
+}
+//> 타임특가

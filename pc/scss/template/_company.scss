@@ -1,0 +1,202 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../setting/const';
+@use '../setting/var';
+@use '../helper/mixin';
+
+
+//< 회사소개
+.m_company {
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+
+	&-inner {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		height: 100%;
+	}
+
+	&-split {
+		> * {
+			position: relative;
+			width: 50%;
+			height: 100%;
+		}
+	}
+
+	&-content {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	&-pager {
+		position: absolute;
+		top: 50%;
+		left: 30px;
+		@include mixin.transform(translateY(-50%));
+
+		li {
+			padding: 10px 0;
+
+			button {
+				width: 10px;
+				height: 10px;
+				border-radius: 100%;
+				background-color: #fff;
+				@include mixin.opacity(0.3);
+
+				&.__page-on {
+					@include mixin.opacity(1);
+				}
+			}
+		}
+	}
+
+	section {
+		position: relative;
+		height: 100%;
+		color: #fff;
+
+		&:not(.m_company-split) {
+			text-align: center;
+		}
+
+		&:first-child {
+			h3 {
+				@include mixin.font(400 '64px/1');
+			}
+
+			strong {
+				display: inline-block;
+				margin-top: 36px;
+				@include mixin.font(500 '48px' [var.$fontFamily_latin], 0);
+			}
+
+			p {
+				margin-top: 14px;
+				@include mixin.font('17px/1');
+
+				&:first-of-type {
+					position: relative;
+					margin-top: 62px;
+
+					&::before {
+						position: absolute;
+						top: -32px;
+						left: 50%;
+						margin-left: -30px;
+						width: 60px;
+						border-top: 4px solid #fff;
+						content: '';
+					}
+				}
+			}
+		}
+
+		.image_background {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+
+		h3 {
+			@include mixin.font(700 '44px/50px');
+
+			+ p {
+				margin-top: 34px;
+			}
+		}
+
+		p {
+			margin-top: 34px;
+			@include mixin.font('14px/20px', nowrap);
+
+			&:first-child {
+				margin: 0 0 14px;
+			}
+		}
+	}
+
+	.m_company-brand {
+		background-color: #eee;
+		color: var.$color_main_base;
+
+		h3 {
+			@include mixin.font('34px/1');
+		}
+
+		p {
+			margin-top: 17px;
+		}
+
+		.image_company {
+			margin-top: 8px;
+		}
+	}
+
+	.m_company-news {
+		background-color: var.$color_main_base;
+
+		h3 {
+			@include mixin.font('34px/1' [var.$fontFamily_latin], 0);
+		}
+
+		p {
+			margin-top: 12px;
+		}
+
+		ul {
+			display: inline-block;
+			margin-top: 30px;
+			width: 758px;
+			@include mixin.font('0/1' center);
+
+			li {
+				display: inline-block;
+				margin: 34px 0 0 34px;
+
+				&:nth-child(-n+3) {
+					margin-top: 0;
+				}
+
+				&:nth-child(3n+1) {
+					margin-left: 0;
+				}
+
+				a {
+					display: block;
+					position: relative;
+					padding: 32px 28px;
+					width: 230px;
+					height: 230px;
+					background-color: #fff;
+					@include mixin.font(var.$color_main_base '17px/24px' left);
+
+					span {
+						position: absolute;
+						bottom: 27px;
+						left: 28px;
+						@include mixin.font('14px/1');
+					}
+				}
+			}
+		}
+
+		.text_copyright {
+			margin-top: 41px;
+			font-size: 12px;
+		}
+	}
+}
+//> 회사소개

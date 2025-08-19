@@ -1,0 +1,25 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../setting/const';
+@use '../setting/var';
+@use '../helper/mixin';
+
+
+//< 텍스트
+.m_ui-title {
+	@include mixin.text-ellipsis(1);
+	padding-bottom: 28px;
+	@include mixin.font('38px' center);
+}
+
+.m_ui-sub-title {
+	@include mixin.text-ellipsis(1);
+	@include mixin.font(#6a6a6a '18px/28px');
+}
+
+.m_ui-prod-title {
+	padding: 0 16px 14px;
+	@include mixin.font('17px/1.4');
+}
+//> 텍스트

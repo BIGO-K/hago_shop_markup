@@ -1,0 +1,146 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../setting/const';
+@use '../setting/var';
+@use '../helper/mixin';
+
+
+//< gnb
+.mm_gnb {
+	height: var.$height_gnb;
+
+	&.__gnb-flex {
+		ul {
+			@include mixin.flex-container();
+		}
+
+		li {
+			@include mixin.prefix(flex, auto, webkit ms);
+		}
+	}
+
+	&-inner {
+		position: fixed;
+		z-index: const.$zIndex_floating;
+		top: -2px;
+		right: 0;
+		left: 0;
+		padding-top: 2px;
+		background-color: rgba(#000, 0.25);
+		white-space: nowrap;
+		@include mixin.transform(translateY(var.$height_header_main));
+		@include mixin.transition(background-color const.$time_fast, transform const.$time_fast);
+
+		.__header-hide & {
+			background-color: rgba(#fff, 1);
+			@include mixin.transform(translateY(0));
+		}
+	}
+
+	ul {
+		display: inline-block;
+		padding: 0 5px;
+		font-size: 0;
+	}
+
+	li {
+		display: inline-block;
+		height: var.$height_gnb;
+		@include mixin.font(#fff '14px/41px' center, nowrap);
+
+		.__header-hide & {
+			color: #2b2b2b;
+		}
+
+		> a {
+			b {
+				display: inline-block;
+				position: relative;
+				padding: 0 9px;
+				font-weight: 500;
+			}
+
+			&.__on {
+				b::after {
+					position: absolute;
+					right: 0;
+					bottom: -1px;
+					left: 0;
+					border-bottom: 3px solid var.$color_primary_base;
+					content: '';
+				}
+			}
+		}
+	}
+}
+//> gnb
+
+//< 페이지네이션
+.mm_pagination {
+	$width_pagination-base: 28px;
+	$height_pagination_base: 28px;
+
+	margin-top: 20px;
+	text-align: center;
+
+	.mm_inline {
+		position: relative;
+	}
+
+	li {
+		float: left;
+
+		a {
+			display: block;
+			padding: 0 15px;
+			height: $height_pagination_base;
+			@include mixin.font(#b8b8b9 '17px/#{($height_pagination_base - 2px)}' [var.$fontFamily_latin] center);
+
+			&.__page-on {
+				color: var.$color_primary_base;
+			}
+		}
+	}
+
+	[class^="btn_control"],
+	[class*=" btn_control"] {
+		position: absolute;
+		top: 0;
+		width: $width_pagination-base;
+		height: $height_pagination_base;
+		border: 1px solid #999;
+		border-radius: 2px;
+		@include mixin.font(#999 '12px/#{($height_pagination_base - 2px)}' center);
+
+		&.btn_control-first {
+			left: -($width_pagination-base * 3 - 13px) - 7px;
+
+			i::before {
+				letter-spacing: -1px;
+			}
+		}
+
+		&.btn_control-prev {
+			left: -($width_pagination-base * 2 - 13px);
+		}
+
+		&.btn_control-next {
+			right: -($width_pagination-base * 2 - 13px);
+		}
+
+		&.btn_control-last {
+			right: -($width_pagination-base * 3 - 13px) - 7px;
+
+			i::before {
+				letter-spacing: -1px;
+			}
+		}
+
+		&[disabled] {
+			border-color: #dcdcdc;
+			color: #cdcdcd;
+		}
+	}
+}
+//> 페이지네이션

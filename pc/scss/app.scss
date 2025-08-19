@@ -1,0 +1,55 @@
+@charset 'utf-8';
+
+@use 'setting/var';
+@use 'helper/mixin';
+
+
+//< 모듈 forward
+@forward 'setting/reset';
+
+@forward 'component/block';
+@forward 'component/bom';
+@forward 'component/button';
+@forward 'component/form';
+@forward 'component/grid';
+@forward 'component/image';
+@forward 'component/list';
+@forward 'component/monticon';
+@forward 'component/part';
+@forward 'component/text';
+
+@forward 'layout/cover';
+@forward 'layout/footer';
+@forward 'layout/header';
+@forward 'layout/modal';
+@forward 'layout/nav';
+@forward 'layout/popup';
+@forward 'layout/side';
+
+@forward 'module/menu';
+@forward 'module/banner';
+@forward 'module/product';
+@forward 'module/mix';
+@forward 'module/etc';
+
+@forward 'page/cs';
+@forward 'page/error';
+@forward 'page/mypage';
+@forward 'page/order';
+@forward 'page/sign';
+@forward 'page/term';
+
+@forward 'template/brand';
+@forward 'template/etc';
+@forward 'template/event';
+@forward 'template/main';
+@forward 'template/product';
+@forward 'template/company';
+//> 모듈 forward
+
+//< font-face (마지막 파라미터 기본 값은 woff2 woff 입니다.)
+@include mixin.font-face('Brown', var.$fontPath + 'BrownStd-Regular', 400);
+@include mixin.font-face('Brown', var.$fontPath + 'BrownStd-Thin', 100);
+@include mixin.font-face('Brown', var.$fontPath + 'BrownStd-Light', 300);
+@include mixin.font-face('Brown', var.$fontPath + 'BrownStd-Bold', 700);
+//> font-face

@@ -1,0 +1,43 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../setting/const';
+@use '../setting/var';
+@use '../helper/mixin';
+
+
+//< 텍스트
+.m_ui-title {
+	@include mixin.text-ellipsis(1);
+	padding-bottom: 16px;
+	@include mixin.font(#2b2b2b 700 '20px/1.4' center);
+
+	> * {
+		display: inline;
+	}
+
+	+ .m_ui-sub-title {
+		margin-top: -16px;
+		padding-top: 4px;
+	}
+}
+
+.m_ui-sub-title {
+	@include mixin.text-ellipsis(1);
+	padding-bottom: 13px;
+	@include mixin.font(#5c5c5c '14px/19px' center);
+
+	> * {
+		display: inline;
+	}
+
+	+ .m_ui-sub-title {
+		margin-top: -13px;
+	}
+}
+
+.m_ui-prod-title {
+	padding: 0 16px 14px;
+	@include mixin.font('17px/1.4');
+}
+//> 텍스트

@@ -1,0 +1,192 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../setting/const';
+@use '../setting/var';
+@use '../helper/mixin';
+
+//< 탭인덱스
+[tabindex] {
+	cursor: pointer;
+}
+//> 탭인덱스
+
+//< 기본형
+.mm_btn {
+	position: relative;
+	padding: 0 60px;
+	width: auto;
+	height: 46px;
+	border-radius: 46px;
+	background-color: #eee;
+	@include mixin.font(#4a4a4a '15px/46px' center);
+
+	&::after {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		border: 1px solid transparent;
+		border-radius: 46px;
+		content: '';
+	}
+
+	$sizes: (sm, 12px, 32px, 14px), (xs, 12px, 24px, 12px), (2xs, 6px, 19px, 11px),
+			(lg, 104px, 54px, 17px), (xl, null, null), (2xl, null, null);
+	@each $type, $padding, $height, $fontSize in $sizes {
+		&[class*="_#{inspect($type)}_"] {
+			@if $height {
+				padding: 0 $padding;
+				height: $height;
+				border-radius: $height;
+				@include mixin.font('#{$fontSize}/#{$height - 2px}');
+			}
+
+			@if $type == sm {
+				.__ie11 & { line-height: $height; }
+			}
+
+			@if $type == lg {
+				line-height: $height;
+			}
+
+			&::after {
+				border-radius: $height;
+			}
+		}
+	}
+
+	$colors: (light, null, null, null), (lighter, null, null, null), (lightest, null, null, null),
+			(dark, #6a6a6a, #fff, null), (darker, #5c5c5c, #fff, null), (darkest, null, #fff, null),
+			(primary, var.$color_primary_base, #fff, null), (primary_light, var.$color_primary_base, #fff, null),
+			(secondary, var.$color_secondary_base, #fff, null), (tertiary, null, #fff, null);
+	@each $type, $bgColor, $fontColor, $borderColor in $colors {
+		&[class*="_#{inspect($type)}_"] {
+			@if $bgColor {
+				background-color: $bgColor;
+				color: $fontColor;
+
+				&::after {
+					border-color: $borderColor;
+				}
+			}
+		}
+	}
+
+	&[class*="_line_"] {
+		background-color: #fff;
+		color: #5c5c5c;
+
+		&::after {
+			border-color: #6a6a6a;
+		}
+
+		$lines: (light, null, #7b7b7b, #7b7b7b), (lighter, null, #8c8c8c, #a3a3a3), (lightest, null, #999, #aeaeae),
+				(dark, null, #2b2b2b, #2b2b2b), (darker, null, null, null), (darkest, null, null, null),
+				(primary, null, var.$color_primary_base, var.$color_primary_base), (primary_light, null, var.$color_primary_base, var.$color_primary_base),
+				(secondary, null, var.$color_secondary_base, var.$color_secondary_base), (tertiary, null, null, null),
+				(naver, null, null, null), (transparent, transparent, null, null);
+		@each $type, $bgColor, $fontColor, $borderColor in $lines {
+			&[class*="_#{inspect($type)}_"] {
+				@if $borderColor {
+					background-color: $bgColor;
+					color: $fontColor;
+
+					&::after {
+						border-color: $borderColor;
+					}
+				}
+			}
+		}
+	}
+
+	&[class*="_square_"] {
+		border-radius: 3px;
+
+		&::after {
+			border-radius: 3px;
+		}
+	}
+
+	&[class*="_short_"] {
+		padding: 0 30px;
+	}
+
+	&[class*="_disabled_"],
+	&:disabled {
+		background-color: #e6e6e6;
+		color: #a3a3a3 !important;
+
+			&::after {
+				border: 0;
+			}
+	}
+
+	@include mixin.context-unify(a) {
+		&:not([href]) {
+			background-color: #e6e6e6;
+			color: #a3a3a3 !important;
+
+			&::after {
+				border: 0;
+			}
+		}
+	}
+}
+//> 기본형
+
+//< 최하단버튼
+.mm_foot {
+	margin-top: 30px;
+}
+//> 최하단버튼
+
+//< 버튼그룹
+.mm_btnbox {
+	@include mixin.font('0' center);
+	@include mixin.clearfix();
+
+	> * {
+		&:nth-child(n+2) {
+			margin: 0 0 0 8px;
+		}
+	}
+
+	.mm_block {
+		> .mm_btn {
+			padding: 0;
+			width: 100%;
+
+			&:nth-child(n+2) {
+				margin: 9px 0 0 0;
+			}
+		}
+	}
+
+	&.mm_flex {
+		> * {
+			padding: 0;
+
+			&:nth-child(n+2) {
+				margin: 0 0 0 6px;
+			}
+		}
+	}
+
+	&.__btnbox_equal__ {
+		> * {
+			padding: 0;
+			width: 226px;
+		}
+	}
+}
+//> 버튼그룹
+
+//< 버튼종류
+.btn_size {
+	.mco_size {
+		margin-right: 5px;
+	}
+}
+//> 버튼종류

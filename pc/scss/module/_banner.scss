@@ -1,0 +1,274 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../setting/const';
+@use '../setting/var';
+@use '../helper/mixin';
+
+
+//< 고정
+.m_ui-banner {
+	.m_ui-title {
+		text-align: left;
+
+		+ .m_ui-sub-title {
+			margin-top: -18px;
+		}
+	}
+
+	.m_ui-sub-title {
+		padding-bottom: 33px;
+
+		+ .m_ui-sub-title {
+			margin-top: -35px;
+		}
+	}
+
+	.m_ui-item {
+		> a {
+			display: block;
+		}
+
+		figure {
+			position: relative;
+		}
+
+		.image_banner {
+			width: 100%;
+		}
+	}
+
+	&:not([class*="_banner_"]) {
+		.m_ui-item {
+			.image_banner {
+				padding-top: 665px;
+			}
+
+			figcaption {
+				margin-top: 18px;
+				padding: 0 18px;
+				height: 60px;
+				@include mixin.font('26px/1.4');
+
+				> p {
+					@include mixin.text-ellipsis(1);
+				}
+
+				.text_sub {
+					margin-top: 5px;
+					@include mixin.font(#6a6a6a '14px');
+				}
+			}
+		}
+	}
+
+	&-list {
+		ul {
+			margin: -41px 0 0 -12px;
+
+			li {
+				float: left;
+				margin: 41px 0 0 12px;
+				width: 445px;
+
+				> a {
+					display: block;
+				}
+			}
+		}
+
+		.image_banner {
+			padding-top: 100%;
+			width: 100%;
+		}
+
+		figure {
+			figcaption {
+				margin-top: 12px;
+				padding: 0 3px;
+				height: 66px;
+				@include mixin.font('17px/1.4');
+
+				.text_main {
+					@include mixin.text-ellipsis(1);
+				}
+
+				[class*="text_sub"] {
+					@include mixin.font(#6a6a6a '14px/1.4');
+
+					@include mixin.context-before('.text_main +') {
+						margin-top: 5px;
+					}
+				}
+			}
+		}
+	}
+}
+//> 고정
+
+//< 캐러셀
+.m_ui-banner-carousel {
+	&.__banner_hero__ {
+		.mm_carousel {
+			&-list {
+				padding-top: 600px;
+			}
+
+			&-item {
+				top: 0;
+
+				.image_banner {
+					padding-top: 600px;
+					width: 100%;
+				}
+
+				figcaption {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					margin-left: math.div(var.$minWidth_base, -2);
+					padding: 0 90px;
+					width: var.$minWidth_base;
+					@include mixin.font(#fff '/1.4' center);
+					@include mixin.transform(translateY(-50%));
+
+					[class*="text_main"] {
+						@include mixin.font(700 '48px/52px');
+
+						+ [class*="text_main"] {
+							padding-top: 12px;
+						}
+
+						+ [class*="text_sub"] {
+							padding-top: 21px;
+
+							+ [class*="text_sub"] {
+								padding-top: 27px;
+							}
+						}
+					}
+
+					.text_sub1 {
+						font-size: 30px;
+					}
+
+					.text_sub2 {
+						padding-left: 2px;
+						font-size: 23px;
+					}
+
+					&.__text_black__ {
+						color: #000;
+					}
+				}
+			}
+
+			&-control {
+				position: absolute;
+				z-index: 2;
+				top: 50%;
+				left: 50%;
+				margin-left: math.div(var.$minWidth_base, -2);
+				width: var.$minWidth_base;
+
+				button {
+					padding: 10px;
+					@include mixin.font(rgba(#fff, 0.7) '47px');
+					text-shadow: 0px 3px 6px rgba(#000, 0.16);
+				}
+			}
+
+			&-count {
+				position: absolute;
+				z-index: 2;
+				bottom: 40px;
+				left: 50%;
+				padding: 0 14px;
+				border-radius: 26px;
+				background-color: rgba(#101010, 0.38);
+				font-size: 0;
+				@include mixin.transform(translateX(-50%));
+
+				> * {
+					@include mixin.font(rgba(#fff, 0.3) 500 '15px/30px' [var.$fontFamily_latin]);
+				}
+
+				.text_carousel-index {
+					color: #fff;
+				}
+
+				.text_carousel-total::before {
+					content: '/';
+				}
+			}
+		}
+	}
+
+	&.__banner_ribbon__ {
+		.mm_carousel {
+			&-item {
+				.mm_image-none {
+					position: relative;
+					height: 224px;
+					background-color: #f5f5f5;
+
+					&::after {
+						position: absolute;
+						top: 50%;
+						right: 8px;
+						left: 8px;
+						@include mixin.font(#a3a3a3 '14px/20px' center, normal);
+						content: attr(data-ir);
+						@include mixin.transform(translateY(-50%));
+					}
+
+					.mco_none {
+						display: none;
+					}
+				}
+			}
+
+			&-pagination {
+				bottom: 16px;
+
+				.btn_carousel-page {
+					width: 10px;
+					height: 10px;
+					border-radius: 10px;
+					background-color: rgba(#101010, 0.5);
+
+					&.__carousel-on {
+						background-color: var.$color_primary_base;
+					}
+				}
+			}
+		}
+	}
+
+	&.__banner_ribbon_both__ {
+		font-size: 0;
+
+		.m_ui-item {
+			display: inline-block;
+			width: 50%;
+
+			.mm_carousel-list {
+				height: 140px;
+			}
+
+			.mm_carousel-item {
+				.image_banner {
+					padding-top: 140px;
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+//> 캐러셀
+
+//< 슬라이더
+// .m_ui-banner-slider {
+
+// }
+//> 슬라이더

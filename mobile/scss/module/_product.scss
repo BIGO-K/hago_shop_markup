@@ -1,0 +1,136 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../setting/const';
+@use '../setting/var';
+@use '../helper/mixin';
+
+
+//< 캐러셀
+.m_ui-prod-carousel {
+	&:not(.__product_single__) {
+		.mm_carousel {
+			&-inner {
+				padding: 0 0 37px 14px;
+			}
+
+			&-item {
+				padding-right: 14px;
+			}
+
+			&-pagination {
+				bottom: 0;
+			}
+		}
+	}
+
+	&.__prod_single__ {
+		padding: 44px 0 50px;
+		background-color: #1e1e1e;
+
+		.m_ui-title {
+			color: #fff;
+		}
+
+		.mm_carousel {
+			margin-left: 14px;
+
+			&-inner {
+				padding: 0 calc(21.05263% + 20px) 42px 0;
+			}
+
+			&-list {
+				box-sizing: content-box;
+				padding-top: 133.15217%;
+				height: 135px;
+			}
+
+			&-item {
+				top: 0;
+				padding-right: 10px;
+				width: calc(100% + 30px);
+				background-color: transparent;
+			}
+
+			&-count {
+				bottom: 0;
+				left: 50%;
+				margin-left: -4px;
+				padding: 0 14px;
+				height: 26px;
+				border: 1px solid #101010;
+				border-radius: 13px;
+				background-color: #101010;
+				font-size: 0;
+				@include mixin.transform(translateX(-50%));
+
+				> * {
+					@include mixin.font(#cdcdcd 300 '15px/24px' [var.$fontFamily_latin]);
+				}
+
+				.text_carousel-index {
+					@include mixin.font(#fff 500);
+				}
+
+				.text_carousel-total::before {
+					content: '/';
+				}
+			}
+		}
+
+		.mm_product-list.__list_card__ {
+			.mm_product-item {
+				a {
+					padding: 10px 10px 25px;
+					background-color: #fff;
+
+					figure {
+						position: relative;
+
+						.text_soldout {
+							position: absolute;
+							z-index: 1;
+							top: 0;
+							left: 0;
+							background-color: rgba(#000, 0.27);
+
+							b {
+								position: absolute;
+								top: 50%;
+								left: 50%;
+								margin: -30px 0 0 -50px;
+								width: 100px;
+								height: 60px;
+								border: 2px solid #fff;
+								@include mixin.font(#fff 500 '12px' center);
+
+								strong {
+									display: block;
+									@include mixin.font('17px/56px' [var.$fontFamily_latin], 0);
+								}
+							}
+						}
+					}
+				}
+
+				.mm_like {
+					right: 10px;
+					margin-top: calc((100% - 20px) * 1.3315217 + 10px);
+				}
+			}
+		}
+	}
+}
+//> 캐러셀
+
+// 리스트
+.m_ui-prodlist-scroll {
+	> section {
+		padding: 26px 0 40px;
+
+		&:nth-of-type(odd) {
+			background-color: #f5f5f5;
+		}
+	}
+}
+//> 스크롤

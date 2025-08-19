@@ -1,0 +1,252 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../setting/const';
+@use '../setting/var';
+@use '../helper/mixin';
+
+
+//< 기본형
+.mm_text {
+	&-primary {
+		color: var.$color_primary_base !important;
+	}
+
+	&-secondary {
+		color: var.$color_secondary_base !important;
+	}
+
+	&-negative {
+		color: var.$color_negative_base;
+	}
+
+	&-none {
+		padding: 127px 0 125px;
+		@include mixin.font('14px/20px' center);
+
+		&[class*="_sm_"] {
+			padding: 49px 0 47px;
+		}
+	}
+
+	&-ellipsis {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		word-break: break-all;
+
+		br {
+			display: none;
+		}
+	}
+
+	&-break {
+		word-break: break-all;
+	}
+}
+//> 기본형
+
+//< 대체텍스트
+.mm_ir {
+	&-blind {
+		@include mixin.text-ir();
+	}
+
+	&-indent {
+		@include mixin.text-ir(indent);
+	}
+
+	&-wa {
+		@include mixin.text-ir(wa);
+	}
+}
+//> 대체텍스트
+
+//< 페이지제목
+.mm_title {
+	padding: 52px 0 54px;
+	@include mixin.font('34px' center);
+
+	strong {
+		font-weight: 700;
+	}
+
+	+ .mm_breadcrumb {
+		margin-top: -25px;
+	}
+}
+//> 페이지제목
+
+//< 컨텐츠제목
+.mm_heading {
+	position: relative;
+	padding: 0 5px 19px;
+	border-bottom: 2px solid #101010;
+	@include mixin.font('26px/36px');
+}
+//> 컨텐츠제목
+
+//< 소제목
+.mm_strapline {
+	position: relative;
+	padding-bottom: 15px;
+	vertical-align: 0;
+	font-size: 17px;
+
+	> * {
+		display: inline-block;
+	}
+
+	strong {
+		margin-left: 7px;
+		vertical-align: 1px;
+		@include mixin.font('15px' [var.$fontFamily_latin], 0);
+	}
+
+	small {
+		position: absolute;
+		top: 3px;
+		right: 10px;
+		@include mixin.font(#6a6a6a '13px');
+	}
+
+	&[class*="_line"] {
+		margin-left: 0;
+		padding: 19px 5px 20px;
+		border-top: 2px solid #101010;
+		border-bottom: 1px solid #eee;
+		@include mixin.font('20px/28px');
+	}
+}
+//> 소제목
+
+//< 유의사항
+.mm_note {
+	margin-top: 15px;
+	@include mixin.font(#6a6a6a '13px/22px');
+
+	@include mixin.context-unify(section) {
+		margin-top: 69px;
+	}
+
+	.text_title {
+		@include mixin.font(var.$color_text_base '14px');
+
+		.mco_note {
+			margin: 1px 6px -1px 0;
+			@include mixin.font(#a3a3a3 '16px');
+		}
+
+		+ ul {
+			margin-top: 6px;
+		}
+	}
+
+	ul {
+		li {
+			position: relative;
+			padding-left: 8px;
+
+			&::before {
+				position: absolute;
+				top: 0;
+				left: -4px;
+				content: 'ㆍ';
+			}
+
+			strong {
+				color: var.$color_text_base;
+			}
+		}
+	}
+
+	&[class*="_bg_"] {
+		margin: 0;
+		padding: 25px 24px 26px;
+		background-color: #fafafa;
+
+		.text_title {
+			font-size: 15px;
+
+			.mco_note {
+				margin: 0 7px 0 0;
+			}
+
+			+ ul {
+				margin-top: 5px;
+			}
+		}
+	}
+
+	> p {
+		@include mixin.font(#6a6a6a '12px/16px');
+	}
+
+	+ .mm_form-check {
+		margin-top: 19px;
+	}
+}
+//> 유의사항
+
+//< 태그
+.mm_tag {
+	display: inline-block;
+	padding: 0 4px;
+	min-width: 62px;
+	height: 22px;
+	border: 1px solid var.$color_main_base;
+	border-radius: 11px;
+	background-color: #fff;
+	@include mixin.font(var.$color_main_base '13px/20px' center);
+
+	&[class*="_square_"] {
+		height: 21px;
+		min-width: 54px;
+		border-radius: 2px;
+		@include mixin.font('12px/19px');
+
+		.__ie11 & { line-height: 18px; }
+	}
+
+	$colors: (darker, #6a6a6a, #5c5c5c), (dark, #999, #7b7b7b), (gray, #a3a3a3, #8c8c8c),
+	(primary, var.$color_primary_base, var.$color_primary_base), (secondary, var.$color_secondary_base, var.$color_secondary_base);
+	@each $type, $borderColor, $fontColor in $colors {
+		&[class*="_#{inspect($type)}_"] {
+			@if $fontColor {
+				border-color: $borderColor;
+				color: $fontColor;
+			}
+		}
+	}
+
+	&[class*="_full_"] {
+		$full: (gray, #999, #aeaeae, #f5f5f5), (secondary, #fff, var.$color_secondary_base, var.$color_secondary_base);
+		@each $type, $fontColor, $borderColor, $bgColor in $full {
+			&[class*="_#{inspect($type)}_"] {
+				@if $bgColor {
+					border-color: $borderColor;
+					background-color: $bgColor;
+					color: $fontColor;
+				}
+			}
+		}
+	}
+
+	.__ie11 & { line-height: 18px; }
+}
+//> 태그
+
+//< 가격
+.text_price {
+	> * {
+		vertical-align: 0;
+		@include mixin.font(700 [var.$fontFamily_latin], 0);
+
+		&::after {
+			vertical-align: 1px;
+			@include mixin.font(400 [var.$fontFamily_base]);
+			content: '원';
+		}
+	}
+}
+//> 가격

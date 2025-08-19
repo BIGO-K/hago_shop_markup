@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ko" class="__layout_main__">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<link rel='shortcut icon' href="https://image.hago.kr/mall/ui/mobile/common/favicon.ico">
+
+	<!-- 소셜태그 -->
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<!--// 소셜태그 -->
+
+	<title>하고</title>
+
+	<!-- 공통 css -->
+	<link rel="stylesheet" href="../css/app.css">
+
+	<!-- (D) 폴리필/라이브러리는 요청을 줄이기 위해 combind + minify를 적용해주세요. -->
+	<!-- 폴리필/라이브러리 스크립트 -->
+	<script src="../../assets/js/polyfill/babel-polyfill-7.12.1.min.js"></script>
+	<script src="../../assets/js/polyfill/dom4-2.1.5.min.js"></script>
+	<script src="../../assets/js/polyfill/fetch.umd-3.6.2.min.js"></script>
+	<script src="../../assets/js/polyfill/intersection-observer-0.12.0.min.js"></script>
+	<script src="../../assets/js/polyfill/resize-observer-1.5.1.min.js"></script>
+	<script src="../../assets/js/lib/lodash-4.17.21.min.js"></script>
+	<script src="../../assets/js/lib/gsap-3.6.1/gsap.min.js"></script>
+	<script src="../../assets/js/lib/axios-0.21.1.min.js"></script>
+	<script src="../../assets/js/lib/load-image.all-5.14.0.min.js"></script>
+	<script src="../../assets/js/lib/sortable-1.13.0.min.js"></script>
+
+	<!-- 공통 스크립트 -->
+	<script src="../js/app_common.js"></script>
+	<script src="../js/app_page-common.js"></script>
+
+	<!-- (D) 페이지 전용 스크립트는 .mm_page-content 하단에 넣어주세요. -->
+</head>
+<body>
+	<div id="mm_app" class="mm_app">
+		<!-- 스킵 -->
+		<nav class="mm_skip">
+			<ul>
+				<li><a href="#mm_body" data-href="{ '_type': 'anchor' }">본문바로가기</a></li>
+			</ul>
+		</nav>
+		<!-- 스킵 -->
+
+		<!-- 화면 -->
+		<div class="mm_view">
+			<!-- 헤더 -->
+			<header class="mm_header">
+				<h1><a href="/" data-href="{ '_type': 'home' }"><i class="image_logo"></i><b class="mm_ir-blind">하고</b></a></h1>
+				<div class="mm_rside">
+					<a href="_popup_search.html" data-href="{ '_type': 'popup' }"><b class="mm_ir-blind">검색하기</b><i class="mco_search"></i></a>
+					<a href="cart.html" data-href="{ '_type': 'link' }"><i class="mco_cart"></i><strong class="text_badge">2</strong><b class="mm_ir-blind">장바구니</b></a>
+				</div>
+			</header>
+			<!--// 헤더 -->
+
+			<!-- 내용 -->
+			<div id="mm_body" class="mm_page">
+				<!-- (D) 실제 내용을 추가하는 부분입니다. -->
+
+				<div class="mm_scroller">
+					<div class="mm_page-inner">
+						<!-- 본문 -->
+						<div class="mm_page-content">
+							<!-- GNB -->
+							<div class="mm_gnb">
+								<!-- (D) 메뉴가 모바일 가로 사이즈보다 적으면 mm_gnb에 '__gnb-flex' 클래스가 추가됩니다. -->
+								<div class="mm_gnb-inner mm_scroller __scroller_x__">
+									<!-- (D) 현재페이지의 a 요소에 "__on" 클래스와 "선택됨" 타이틀을 추가합니다. -->
+									<ul>
+										<li><a href="#home" class="__on" title="선택됨"><b>HOME</b></a></li>
+										<li><a href="#fashion"><b>FASHION</b></a></li>
+										<li><a href="#accessory"><b>ACC</b></a></li>
+										<li><a href="#life"><b>LIFE</b></a></li>
+										<li><a href="#best"><b>BEST</b></a></li>
+										<li><a href="#raffle" style="color:#ff7e00"><b>RAFFLE</b></a></li>
+										<li><a href="#funding"><b>FUNDING</b></a></li>
+										<li><a href="#curation"><b>CURATION</b></a></li>
+										<li><a href="#journal"><b>JOURNAL</b></a></li>
+									</ul>
+								</div>
+							</div>
+							<!--// GNB -->
+
+							<!-- 메인스와이퍼 -->
+							<div class="m_main">
+								<div class="mm_carousel" data-carousel>
+									<div class="mm_carousel-inner">
+										<ul class="mm_carousel-list">
+											<li class="mm_carousel-item">
+												<iframe class="m_main-slideframe" data-preload="{ '_src': '_iframe_mainHome.html' }"></iframe>
+											</li>
+											<li class="mm_carousel-item">
+												<iframe class="m_main-slideframe" data-preload="{ '_src': '_iframe_mainFashion.html', '_isPass': true }"></iframe>
+											</li>
+											<li class="mm_carousel-item">
+												<iframe class="m_main-slideframe" data-preload="{ '_src': '_iframe_mainAccessory.html', '_isPass': true }"></iframe>
+											</li>
+											<li class="mm_carousel-item">
+												<iframe class="m_main-slideframe" data-preload="{ '_src': '_iframe_mainLife.html', '_isPass': true }"></iframe>
+											</li>
+											<li class="mm_carousel-item">
+												<iframe class="m_main-slideframe" data-preload="{ '_src': '_iframe_mainRanking.html', '_isPass': true }"></iframe>
+											</li>
+											<li class="mm_carousel-item">
+												<iframe class="m_main-slideframe" data-preload="{ '_src': '_iframe_mainFunding.html', '_isPass': true }"></iframe>
+											</li>
+											<li class="mm_carousel-item">
+												<iframe class="m_main-slideframe" data-preload="{ '_src': '_iframe_mainCuration.html', '_isPass': true }"></iframe>
+											</li>
+											<li class="mm_carousel-item">
+												<iframe class="m_main-slideframe" data-preload="{ '_src': '_iframe_mainRaffle.html', '_isPass': true }"></iframe>
+											</li>
+											<li class="mm_carousel-item">
+												<iframe class="m_main-slideframe" data-preload="{ '_src': '_iframe_mainJournal.html', '_isPass': true }"></iframe>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<!--// 메인스와이퍼 -->
+						</div>
+						<!--// 본문 -->
+					</div>
+				</div>
+
+				<!-- 앱설치팝업 -->
+				<div class="mm_app-install __install_toast__">
+					<div class="mm_app-install-dim"></div>
+					<div class="mm_app-install-item">
+						<a href="#" data-href="{ '_type': 'link' }">
+							<i class="mm_bg-cover image_banner" data-preload="{ '_src': 'https://image.hago.kr/mall/ui/mobile/content/app_install_banner.png' }"></i>
+							<b class="mm_ir-blind">브랜드와 소비자를 연결합니다. HAGO NEW 앱 설치하세요. 지금 다운받기</b>
+						</a>
+						<div class="mm_btnbox">
+							<button type="button" class="btn_today"><b>오늘하루 그만보기</b></button>
+							<button type="button" class="btn_close"><b>닫기</b></button>
+						</div>
+					</div>
+				</div>
+				<!--// 앱설치팝업 -->
+
+				<!-- 메인팝업 -->
+				<div class="m_main-popup __popup_toast__">
+					<div class="m_main-popup-dim"></div>
+					<div class="m_main-popup-item">
+						<div class="mm_carousel" data-carousel="{ '_autoDelay': 3 }">
+							<div class="mm_carousel-inner">
+								<ul class="mm_carousel-list">
+									<li class="mm_carousel-item">
+										<a href="#" data-href="{ '_type': 'link' }">
+											<i class="mm_bg-cover image_banner" data-preload="{ '_src': 'https://image.hago.kr/mall/ui/mobile/content/main_renewal_toast.png' }"></i>
+											<b class="mm_ir-blind">JEWELRY UP TO 90% + 15%</b>
+										</a>
+									</li>
+									<li class="mm_carousel-item">
+										<a href="#" data-href="{ '_type': 'link' }">
+											<i class="mm_bg-cover image_banner" data-preload="{ '_src': '../image/_sample/main_popup_toast_1.jpg' }"></i>
+											<b class="mm_ir-blind">JEWELRY UP TO 90% + 15%</b>
+										</a>
+									</li>
+									<li class="mm_carousel-item">
+										<a href="#" data-href="{ '_type': 'link' }">
+											<i class="mm_bg-cover image_banner" data-preload="{ '_src': '../image/_sample/main_popup_toast_2.jpg' }"></i>
+											<b class="mm_ir-blind">JEWELRY UP TO 90% + 15%</b>
+										</a>
+									</li>
+									<li class="mm_carousel-item">
+										<a href="#" data-href="{ '_type': 'popup' }">
+											<i class="mm_bg-cover image_banner" data-preload="{ '_src': '../image/_sample/main_popup_toast_1.jpg' }"></i>
+											<b class="mm_ir-blind">JEWELRY UP TO 90% + 15%</b>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="mm_carousel-count">
+								<strong class="text_carousel-index"></strong>
+								<span class="text_carousel-total"></span>
+							</div>
+						</div>
+						<div class="mm_btnbox">
+							<button type="button" class="btn_today"><b>오늘 하루 그만보기</b></button>
+							<button type="button" class="btn_close"><b>닫기</b></button>
+						</div>
+					</div>
+				</div>
+				<!--// 메인팝업 -->
+
+				<!-- 앱전용화면 -->
+				<div class="m_app">
+					<div class="m_app-dim"></div>
+
+					<!-- 사용자 활동 접근 권한 -->
+					<div class="m_app-item m_app-tracking">
+						<div class="mm_scroller">
+							<i class="image_app"><img src="https://image.hago.kr/mall/ui/mobile/content/app_tracking.jpg" alt=""></i>
+							<section class="mm_ir-blind">
+								<h3><b>HAVE A GOOD ONE!</b></h3>
+								<p>취향에 꼭 맞는 쇼핑을 도와드릴게요!<br>아래 창이 뜨면 '허용'을 눌러주세요.</p>
+								<p>HAGO 앱이 다른 회사의 앱 및 웹사이트에 걸친 사용자의 활동을 추적하도록 허용하시겠습니까?</p>
+								<p>취향에 맞는 상품을 추천하기 위해 접근 권한이 필요 합니다. '허용'을 눌러주세요.</p>
+							</section>
+							<button type="button" class="mm_btn __btn_primary__"><b>지금 바로 하기</b></button>
+						</div>
+					</div>
+					<!--// 사용자 활동 접근 권한 -->
+
+					<!-- 앱이용권한안내 -->
+					<div class="m_app-item m_app-access">
+						<div class="mm_scroller">
+							<i class="image_app"><img src="https://image.hago.kr/mall/ui/mobile/content/app_access.jpg" alt=""></i>
+							<section class="mm_ir-blind">
+								<h3><b>앱 이용 권한 안내</b></h3>
+								<dl>
+									<dt>기기 및 앱 기록(필수)</dt>
+									<dd>앱 실행 시 서비스 최적화 및 오류확인</dd>
+									<dt>전화(필수)</dt>
+									<dd>고객센터 전화연결</dd>
+									<dt>저장공간·사진(선택)</dt>
+									<dd>포토 상품평 작성</dd>
+								</dl>
+								<div class="mm_note">
+									<ul>
+										<li>선택 접근 권한은 동의하지 않으셔도 그 외 서비스는 이용 가능합니다</li>
+										<li>
+											<dl>
+												<dt>접근권한 변경 방법</dt>
+												<dd>안드로이드: 설정 &#62; 애플리케이션 &#62; HAGO &#62; 권한 &#62; 접근권한 관리</dd>
+												<dd>IOS: 설정 &#62; HAGO &#62; 접근권한 관리</dd>
+											</dl>
+										</li>
+									</ul>
+								</div>
+							</section>
+							<button type="button" class="mm_btn __btn_primary__"><b>확인 완료</b></button>
+						</div>
+					</div>
+					<!--// 앱이용권한안내 -->
+
+					<!-- 푸시알림 -->
+					<div class="m_app-item m_app-push">
+						<div class="mm_scroller">
+							<i class="image_app"><img src="https://image.hago.kr/mall/ui/mobile/content/app_push.jpg" alt=""></i>
+							<section class="mm_ir-blind">
+								<h3><b>푸시 알림을 설정하시겠습니까?</b></h3>
+								<ul>
+									<li><strong>쇼핑 뉴스 정보</strong>를 알려드려요!</li>
+									<li>알림 수신 동의는 <strong>해당 기기</strong>에서만 작동해요</li>
+									<li><strong>전체메뉴 &#62; 설정</strong>에서 변경이 가능해요</li>
+								</ul>
+							</section>
+							<button type="button" class="btn_push-off"><b>다음에 받아볼래요</b></button>
+							<button type="button" class="mm_btn __btn_primary__"><b>알림 ON</b></button>
+						</div>
+					</div>
+					<!--// 푸시알림 -->
+				</div>
+				<!--// 앱전용화면 -->
+
+				<!-- 현재 페이지 스크립트 -->
+				<script src="../js/app_page-main.js"></script>
+				<script>
+					(function () {
+
+						// 앱 설치모달
+						var $appInstallModal = mm.find('.mm_app-install')[0];
+
+						if (!mm.is.mobile('app') && mm.cookie.get('IS_APPINSTALL_MODAL_HIDE') !== 'true') {
+							$appInstallModal.classList.add('__on');
+
+							mm.event.on(mm.find('button, .mm_app-install-dim', $appInstallModal), 'click', function () {
+
+								$appInstallModal.remove();
+								if (this.classList.contains('btn_today')) mm.cookie.set('IS_APPINSTALL_MODAL_HIDE', true, 1, true);// 1일 자정 리셋
+
+								mainPopupBanner();// 메인 팝업배너 노출
+
+							});
+						}
+						else $appInstallModal.remove();
+
+						// 앱 최초실행
+						var $appPopup = mm.find('.m_app')[0];
+
+						if (mm.is.mobile('app_first') && mm.cookie.get('IS_APP_FIRST_HIDE') !== 'true') {
+							$appPopup.classList.add('__on');// 앱 전용화면 열기
+
+							if (!mm.is.mobile('ios')) {
+								mm.find('.m_app-tracking')[0].nextElementSibling.classList.add('__on');
+								mm.find('.m_app-tracking')[0].remove();
+							}
+
+							mm.event.on(mm.find('button', $appPopup), 'click', function (__e) {
+
+								var $item = this.closest('.m_app-item');
+								if ($item.nextElementSibling) {
+									$item.nextElementSibling.classList.add('__on');
+									$item.remove();
+								}
+								else {
+									mm.cookie.set('IS_APP_FIRST_HIDE', true);// 쿠키설정
+									$appPopup.remove();// 앱 전용화면 닫기
+
+									mainPopupBanner();// 메인 팝업배너 노출
+								}
+
+							});
+						}
+						else $appPopup.remove();
+
+						// 메인 팝업배너
+						function mainPopupBanner() {
+
+							var $mainPopup = mm.find('.m_main-popup')[0];
+
+							if (mm.find('.mm_app-install')[0] || mm.find('.m_app')[0]) return;// 앱 최초실행, 앱 설치모달이 있을 경우
+							if (mm.cookie.get('IS_MAIN_POPUP_HIDE') !== 'true') {
+								$mainPopup.classList.add('__on');// 팝업열기
+							}
+							else return $mainPopup.remove();
+
+							// 팝업닫기
+							mm.event.on(mm.find('button, .m_main-popup-dim', $mainPopup), 'click', function () {
+
+								$mainPopup.remove();
+								if (this.classList.contains('btn_today')) mm.cookie.set('IS_MAIN_POPUP_HIDE', true, 1, true);// 1일 자정 리셋
+
+							});
+
+						}
+						mainPopupBanner();
+
+					})();
+				</script>
+			</div>
+			<!--// 내용 -->
+
+			<!-- 툴바 -->
+			<div class="mm_toolbar">
+				<ul class="mm_flex __flex_equal__">
+					<li>
+						<a href="sidebar_level5.html" onclick="mm.side.open(this.href);return false;">
+							<i class="mco_menu"></i>
+							<b>카테고리</b>
+						</a>
+					</li>
+					<li>
+						<a href="_popup_recent.html" data-href="{ '_type': 'popup' }">
+							<!-- (D) 최근본상품이 있을 때 노출합니다. -->
+							<!-- <i class="mm_bg-cover image_recent" data-preload="{ '_src': '../image/_sample/prod_x1_3.png' }"></i> -->
+							<i class="mco_recent"></i>
+							<b>최근본상품</b>
+						</a>
+					</li>
+					<li>
+						<a href="/" data-href="{ '_type': 'home' }">
+							<i class="mco_home"></i>
+							<b class="mm_ir-blind">홈</b>
+						</a>
+					</li>
+					<li>
+						<a href="_popup_inform.html" data-href="{ '_type': 'popup' }">
+							<i class="mco_bell"></i>
+							<b>알림</b>
+						</a>
+					</li>
+					<li>
+						<a href="myMain_level5.html" data-href="{ '_type': 'link' }">
+							<i class="mco_mypage"></i>
+							<b>마이페이지</b>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!--// 툴바 -->
+		</div>
+		<!--// 화면 -->
+	</div>
+</body>
+</html>

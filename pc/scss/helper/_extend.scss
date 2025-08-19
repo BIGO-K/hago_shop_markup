@@ -1,0 +1,137 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../setting/const';
+@use '../setting/var';
+@use '../helper/mixin';
+
+
+//< 찜아이템담기
+%likeFolder {
+	position: relative;
+	margin: 0 -22px;
+
+	.btn_add-folder {
+		padding: 0 23px;
+		width: 100%;
+		@include mixin.font(var.$color_primary_base '15px/64px' left);
+
+		.mco_add {
+			margin-right: 9px;
+			font-size: 20px;
+
+			.__ie11 & { margin-top: 1px; margin-bottom: -1px; }
+		}
+	}
+
+	li {
+		position: relative;
+		border-bottom: 1px solid #eee;
+		font-size: 14px;
+
+		.image_product,
+		.mco_like {
+			position: relative;
+			width: 37px;
+			height: 37px;
+			background-color: #f5f5f5;
+			@include mixin.font(#cdcdcd '13px/37px' center);
+
+			&.__preload-error::before {
+				@include mixin.font(#cdcdcd 'inherit');
+				content: '\ff18';
+			}
+		}
+
+		.text_folder {
+			text-align: left;
+
+			small {
+				display: inline-block;
+				margin: 1px 0 0 8px;
+				@include mixin.font(#7b7b7b 300 '13px' [var.$fontFamily_latin], 0);
+			}
+		}
+	}
+}
+//> 찜아이템담기
+
+//< 저널
+%journalList {
+	padding: 75px 0 90px;
+	background-color: #f5f5f5;
+
+	h3 {
+		@include mixin.font('38px/1.4');
+
+		+ p {
+			margin-top: 9px;
+			@include mixin.font(#6a6a6a '18px/28px');
+		}
+	}
+
+	ul {
+		margin: 22px 0 0 -12px;
+
+		li {
+			float: left;
+			margin: 12px 0 0 12px;
+
+			> a {
+				padding: 12px;
+				width: 262px;
+				border: 1px solid #e6e6e6;
+				background-color: #fff;
+			}
+		}
+	}
+
+	figure {
+		.image_banner {
+			padding-top: 100%;
+			width: 100%;
+		}
+
+		figcaption {
+			position: relative;
+			margin-top: 21px;
+			padding: 0 6px;
+			height: 185px;
+			@include mixin.font('12px/1.4');
+
+			.text_category {
+				color: #aeaeae;
+			}
+
+			.text_date {
+				position: absolute;
+				top: -1px;
+				right: 5px;
+				@include mixin.font(#aeaeae '12px');
+			}
+
+			.text_subtitle {
+				margin-top: 20px;
+				@include mixin.font(#4a4a4a '14px');
+			}
+
+			.text_title {
+				@include mixin.text-ellipsis(2);
+				margin-top: 4px;
+				@include mixin.font('20px/30px');
+			}
+
+			> b {
+				position: absolute;
+				left: 6px;
+				bottom: 25px;
+				color: #7b7b7b;
+
+				.mco_link-sm {
+					margin-left: 5px;
+				}
+			}
+		}
+	}
+}
+//> 저널

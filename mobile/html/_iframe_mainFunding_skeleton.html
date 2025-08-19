@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko" class="__layout_main__ __layout_frame__">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<link rel='shortcut icon' href="https://image.hago.kr/mall/ui/mobile/common/favicon.ico">
+
+	<!-- 소셜태그 -->
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<!--// 소셜태그 -->
+
+	<title>펀딩 &#60; 메인 - 하고</title>
+
+	<!-- 공통 css -->
+	<link rel="stylesheet" href="../css/app.css">
+
+	<!-- (D) 폴리필/라이브러리는 요청을 줄이기 위해 combind + minify를 적용해주세요. -->
+	<!-- 폴리필/라이브러리 스크립트 -->
+	<script src="../../assets/js/polyfill/babel-polyfill-7.12.1.min.js"></script>
+	<script src="../../assets/js/polyfill/dom4-2.1.5.min.js"></script>
+	<script src="../../assets/js/polyfill/fetch.umd-3.6.2.min.js"></script>
+	<script src="../../assets/js/polyfill/intersection-observer-0.12.0.min.js"></script>
+	<script src="../../assets/js/polyfill/resize-observer-1.5.1.min.js"></script>
+	<script src="../../assets/js/lib/lodash-4.17.21.min.js"></script>
+	<script src="../../assets/js/lib/gsap-3.6.1/gsap.min.js"></script>
+	<script src="../../assets/js/lib/axios-0.21.1.min.js"></script>
+	<script src="../../assets/js/lib/load-image.all-5.14.0.min.js"></script>
+	<script src="../../assets/js/lib/sortable-1.13.0.min.js"></script>
+
+	<!-- 공통 스크립트 -->
+	<script src="../js/app_common.js"></script>
+	<script src="../js/app_page-common.js"></script>
+
+	<!-- (D) 페이지 전용 스크립트는 .mm_page-content 하단에 넣어주세요. -->
+</head>
+<body>
+	<div id="mm_app" class="mm_app">
+		<!-- 스킵 -->
+		<nav class="mm_skip">
+			<ul>
+				<li><a href="#mm_body" data-href="{ '_type': 'anchor' }">본문바로가기</a></li>
+			</ul>
+		</nav>
+		<!-- 스킵 -->
+
+		<!-- 화면 -->
+		<div class="mm_view">
+			<!-- 내용 -->
+			<div id="mm_body" class="mm_page">
+				<!-- (D) 실제 내용을 추가하는 부분입니다. -->
+
+				<!-- (D) iframe 컨텐츠는 html 요소에 '__layout_frame__' 클래스를 추가합니다. -->
+				<div class="mm_scroller">
+					<div class="mm_page-inner">
+						<!-- 본문 -->
+						<div class="mm_page-content">
+							<div class="m_funding __main_lift__">
+								<!-- 상단 배너 -->
+								<div class="m_funding-banner">
+									<div class="m_funding-banner-content">
+										<h2><b>FUNDING</b></h2>
+										<b>HAGO와 브랜드가 함께 제안하는 좋은 소재와 <wbr>특별한 가격의 제품,<br>오직 이 곳에서 만나보실 수 있습니다</b>
+										<ol>
+											<li>펀딩 시작</li>
+											<li>펀딩</li>
+											<li>달성</li>
+											<li>제작</li>
+											<li>배송</li>
+										</ol>
+									</div>
+								</div>
+								<!--// 상단 배너 -->
+
+								<!-- 펀딩리스트 -->
+								<div class="m_funding-list">
+									<!-- 진행중인 펀딩리스트 -->
+									<div class="m_funding-on">
+										<!-- 타이틀 -->
+										<h3 class="m_funding-title"><b>FUNDING <strong>ON</strong></b></h3>
+										<!--// 타이틀 -->
+
+										<!-- 카테고리 -->
+										<div class="m_ui-menu-tab __tab_line__">
+											<div class="mm_scroller __scroller_x__">
+												<!-- (D) 선택된 카테고리에 '__category-on' 클래스와 '선택됨' 타이틀을 추가합니다. -->
+												<ul>
+													<li><button type="button" class="__category-on" title="선택됨"><b>VIEW ALL</b></button></li>
+													<li><button type="button"><b>FASHION</b></button></li>
+													<li><button type="button"><b>LIFE</b></button></li>
+												</ul>
+											</div>
+										</div>
+										<!--// 카테고리 -->
+
+										<!-- 상품리스트 -->
+										<ul class="m_funding-product-list __list_skeleton__">
+											<li>
+												<i class="image_product"></i>
+												<div class="m_funding-item-info">
+													<p class="text_brand"></p>
+													<p class="text_main"></p>
+													<p class="text_price"></p>
+												</div>
+											</li>
+											<li>
+												<i class="image_product"></i>
+												<div class="m_funding-item-info">
+													<p class="text_brand"></p>
+													<p class="text_main"></p>
+													<p class="text_price"></p>
+												</div>
+											</li>
+											<li>
+												<i class="image_product"></i>
+												<div class="m_funding-item-info">
+													<p class="text_brand"></p>
+													<p class="text_main"></p>
+													<p class="text_price"></p>
+												</div>
+											</li>
+										</ul>
+										<!--// 상품리스트 -->
+									</div>
+									<!--// 진행중인 펀딩리스트 -->
+
+									<!-- 종료된 펀딩리스트 -->
+									<div class="m_funding-off">
+										<!-- 타이틀 -->
+										<h3 class="m_funding-title"><b>FUNDING <strong>OFF</strong></b></h3>
+										<!--// 타이틀 -->
+
+										<!-- 상품리스트 -->
+										<ul class="m_funding-product-list __list_skeleton__">
+											<li>
+												<i class="image_product"></i>
+												<div class="m_funding-item-info">
+													<p class="text_brand"></p>
+													<p class="text_main"></p>
+													<p class="text_price"></p>
+												</div>
+											</li>
+											<li>
+												<i class="image_product"></i>
+												<div class="m_funding-item-info">
+													<p class="text_brand"></p>
+													<p class="text_main"></p>
+													<p class="text_price"></p>
+												</div>
+											</li>
+										</ul>
+										<!--// 상품리스트 -->
+									</div>
+									<!--// 종료된 펀딩리스트 -->
+								</div>
+								<!--// 펀딩리스트 -->
+
+								<!-- 유의사항 -->
+								<div class="mm_note">
+									<ul>
+										<li>하고 펀딩은 매주 새로운 상품으로 업데이트 됩니다</li>
+										<li>상품별 오더 수량 및 일정이 상이하니, 자세한 내용은 각 상품 페 이지를 참고해주세요</li>
+										<li>펀딩 상품의 배송일정은 예상 출고일에 따라 발송되며 출고시점 전까지는 배송 보류로 표기됩니다</li>
+										<li>교환/환불 안내, 단순변심에 의한 취소는 펀드종료 전에 한하여 가능하며, 생산에 착수시 변심으로 인한 취소가 불가능합니다</li>
+										<li>상품 불량으로 판단되는 경우는 심의를 통하여 교환 혹은 환불해 드립니다</li>
+										<li>HAGO는 플랫폼을 제공하는 중개자로서 생산자와 펀딩 참여자간 분쟁 발생 시 원활한 의사소통을 위해 최선의 노력을 다하겠습니다</li>
+									</ul>
+								</div>
+								<!--// 유의사항 -->
+							</div>
+						</div>
+						<!--// 본문 -->
+
+						<!-- 푸터 -->
+						<footer id="mm_footer" class="mm_footer">
+							<!-- 푸터-앱설치 -->
+							<a href="#" target="_blank" title="새 창 열림" class="btn_download"><i class="image_logo"></i><b class="mm_ir-blind">하고</b>앱 설치하세요<i class="mco_download-app"></i></a>
+							<!--// 푸터-앱설치 -->
+
+							<!-- 푸터-메뉴 -->
+							<div class="mm_footer-menu">
+								<ul class="mm_flex __flex_equal__">
+									<li><a href="company.html" data-href="{ '_type': 'link' }"><b>회사소개</b></a></li>
+									<li><a href="csMain.html" data-href="{ '_type': 'link' }"><b>고객센터</b></a></li>
+									<li><a href="_popup_counsel.html" data-href="{ '_type': 'popup' }"><b>문의하기</b></a></li>
+									<li><a href="#" target="_blank" title="새 창 열림"><b>PC버전</b></a></li>
+								</ul>
+							</div>
+							<!--// 푸터-메뉴 -->
+
+							<!-- 푸터-정보 -->
+							<div class="mm_footer-info">
+								<div class="mm_dropdown" data-dropdown>
+									<b>㈜하고엘앤에프</b>
+									<button type="button" class="btn_dropdown" title="펼쳐보기"><b>사업자 정보</b><i class="mco_dropdown-sm"></i></button>
+									<div class="mm_dropdown-item">
+										<div class="mm_dropdown-item-inner">
+											<address>
+												<p>대표이사: 홍정우</p>
+												<p>서울시 성동구 아차산로17길 48(성수동 2가, 성수 SKV1센터) 1동 1001~5호</p>
+												<p>사업자등록번호: 820-88-00547 <a href="#" target="_blank" title="새 창 열림"><b>사업자정보 확인</b></a></p>
+												<p>통신판매업신고: 제2020-서울성동-02131호</p>
+												<p>개인정보 보호책임자: 박대성</p>
+												<p class="text_cs">대표번호: <a href="tel:1670-3212" title="전화연결"><b>1670-3212</b></a> / AM 10:00 ~ PM 06:00 (월-금)</p>
+												<p>점심시간 12:30~13:30 / 주말 및 공휴일 휴무</p>
+												<p class="text_email">이메일: <a href="mailto:cs@hago.kr" title="새 창 열림"><b>cs@hago.kr</b></a></p>
+											</address>
+										</div>
+									</div>
+								</div>
+								<ul class="mm_footer-info-terms">
+									<li><a href="_popup_termsUse.html" data-href="{ '_type': 'popup' }"><b>서비스이용약관</b></a></li>
+									<li><a href="_popup_termsPrivacy.html" data-href="{ '_type': 'popup' }"><strong>개인정보취급방침</strong></a></li>
+									<li><a href="#" data-href="{ '_type': 'popup' }"><b>이용안내</b></a></li>
+								</ul>
+								<a class="btn_safety-check" href="#" target="_blank" title="새 창 열림"><b>구매안전서비스 가입사실확인</b></a>
+								<p class="text_copyright">&#169; 2021 HAGO L&#38;F CO.,LTD. ALL RIGHTS RESERVED.</p>
+							</div>
+							<!--// 푸터-정보 -->
+						</footer>
+						<!--// 푸터 -->
+					</div>
+				</div>
+
+				<a class="btn_topmost" href="#mm_app" data-href="{ '_type': 'anchor' }" title="페이지 처음으로"><i class="mco_topmost"></i><b>TOP</b></a>
+				<a class="btn_kakaoplus" href="eventKakaoplus.html" data-href="{ '_type': 'link' }"><b class="mm_ir-blind">카카오플러스 15% 쿠폰</b></a>
+
+				<!-- 현재 페이지 스크립트 -->
+				<!-- <script src="../js/.js"></script> -->
+				<script>
+					(function() {
+
+						// 펀딩 스텝 애니매이션
+						var repeatPlay;
+						var $steps = mm.find('.m_funding-banner li');
+						var _repeatIndex = 0;
+
+						(function stepAnimate(){
+
+							if (repeatPlay) repeatPlay.reverse();
+							repeatPlay = new TweenMax.to($steps[_repeatIndex], 0.3, { css: { backgroundColor: '#fff', color: '#003148' }, ease: Cubic.easeInOut });
+							(_repeatIndex < $steps.length -1) ? _repeatIndex ++ : _repeatIndex = 0;
+
+							setTimeout(stepAnimate, 1800);
+
+						})();
+
+					})();
+				</script>
+			</div>
+			<!--// 내용 -->
+		</div>
+		<!--// 화면 -->
+	</div>
+</body>
+</html>

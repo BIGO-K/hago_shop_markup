@@ -1,0 +1,123 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../setting/const';
+@use '../setting/var';
+@use '../helper/mixin';
+
+//< 슬라이더
+.m_ui-prod-slider {
+	&.__prod_single__ {
+		padding: 63px 0 94px;
+		background-color: #2b2b2b;
+
+		.m_ui-title {
+			color: #fff;
+		}
+
+		.mm_slider {
+			padding: 0 49px;
+
+			&-inner {
+				margin: 0 -7px;
+				padding: 0 493px;
+			}
+
+			&-list {
+				padding-top: 68px;
+				height: 631px;
+			}
+
+			.mm_slider-item {
+				position: relative;
+				padding: 0 7px;
+				width: 290px;
+				background-color: transparent;
+				@include mixin.opacity(0.4);
+				@include mixin.transition(opacity const.$time_fast);
+
+				&.__slider-on {
+					z-index: 2;
+					@include mixin.opacity(1);
+
+					.mm_product-item {
+						width: (290px - 7 * 2);
+					}
+				}
+
+				[class*="__ie1"] & {
+					&.__slider-on {
+						z-index: 0;
+						@include mixin.opacity(0.4);
+
+						.mm_product-item {
+							width: 290px;
+						}
+					}
+
+					&.__slider-ie {
+						z-index: 2;
+						@include mixin.opacity(1);
+
+						.mm_product-item {
+							width: (290px - 7 * 2);
+						}
+					}
+				}
+
+				.mm_product-item {
+					padding: 10px 10px 28px;
+					background-color: #fff;
+
+					.mm_like {
+						right: 10px;
+						margin-top: calc((100% - 20px) * 1.3315217 + 10px);
+					}
+				}
+			}
+
+			.mm_slider-control {
+				> button {
+					margin-top: -27px;
+					width: auto;
+					height: auto;
+					background-color: transparent;
+					@include mixin.font(#fff '47px/1.4');
+				}
+			}
+		}
+	}
+}
+
+.m_ui-prodlist-slider {
+	> .m_ui-item {
+		position: relative;
+		padding: 74px 0 71px;
+		@include mixin.clearfix();
+
+		.m_ui-prod-title {
+			position: absolute;
+			top: 4px;
+			left: 0;
+			@include mixin.font('26px/1.4');
+		}
+
+		.mm_slider {
+			float: right;
+			width: 1055px;
+
+			&-item {
+				background-color: transparent;
+			}
+		}
+
+		&:first-of-type {
+			padding-top: 0;
+		}
+
+		&:nth-of-type(even) {
+			background-color: #f5f5f5;
+		}
+	}
+}
+//> 슬라이더

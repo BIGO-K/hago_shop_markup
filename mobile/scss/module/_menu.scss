@@ -1,0 +1,116 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../setting/const';
+@use '../setting/var';
+@use '../helper/mixin';
+
+
+//< 탭
+.m_ui-menu-tab {
+	> .mm_scroller {
+		padding: 3px 0;
+	}
+
+	&.__tab_box__ {
+		padding: 0 14px;
+
+		ul {
+			margin: -8px 0 0 -8px;
+
+			li {
+				float: left;
+				margin: 8px 0 0 8px;
+			}
+		}
+
+		button {
+			padding: 0 14px;
+			height: 35px;
+			border: 1px solid #e6e6e6;
+			border-radius: 3px;
+			@include mixin.font(#4a4a4a '14px/33px' center);
+
+			&.__category-on {
+				border-color: var.$color_main_base;
+				color: var.$color_main_base;
+			}
+		}
+	}
+
+	&.__tab_line__ {
+		ul {
+			display: inline-block;
+			padding: 0 14px;
+			@include mixin.font('0', nowrap);
+
+			li {
+				display: inline-block;
+
+				&:nth-child(n+2) {
+					margin-left: 17px;
+				}
+			}
+		}
+
+		button {
+			position: relative;
+			padding: 0 7px;
+			@include mixin.font(#aeaeae '13px/28px' center);
+
+			&.__category-on {
+				color: var.$color_text_base;
+
+				&::after {
+					position: absolute;
+					right: -1px;
+					bottom: 1px;
+					left: 0;
+					border-bottom: 2px solid var.$color_main_base;
+					content: '';
+				}
+			}
+		}
+	}
+}
+//> 탭
+
+//< 링크
+.m_ui-menu- {
+	&category {
+		border: 8px solid #eee;
+		border-width: 8px 0;
+
+		li {
+			float: left;
+			margin-top: -1px;
+			width: 50%;
+
+			a {
+				display: block;
+				overflow: hidden;
+				padding: 0 5px;
+				height: 52px;
+				border: 1px solid #eee;
+				border-width: 1px 1px 1px 0;
+				@include mixin.font(500 '17px/52px' [var.$fontFamily_latin] center);
+			}
+
+			&:nth-child(even) {
+				a {
+					border-right: 0;
+				}
+
+				&:last-of-type a {
+					border-bottom: 0;
+				}
+			}
+
+			&:nth-child(odd):nth-last-of-type(2) a,
+			&:nth-child(odd):last-of-type a {
+				border-bottom: 0;
+			}
+		}
+	}
+}
+//> 링크

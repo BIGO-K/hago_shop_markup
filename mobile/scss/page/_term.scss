@@ -1,0 +1,91 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../setting/const';
+@use '../setting/var';
+@use '../helper/mixin';
+
+
+//< 약관
+.mm_terms {
+	padding: 17px 14px 0;
+
+	&-inner {
+		@include mixin.font('13px/19px');
+
+		> p:first-child {
+			margin-bottom: 16px;
+		}
+
+		> ul {
+			li:nth-child(n+2) {
+				margin-top: 5px;
+			}
+
+			dd {
+				dl {
+					margin-top: 5px;
+				}
+			}
+		}
+
+		article {
+			h3 {
+				@include mixin.font(700 '14px/22px');
+			}
+
+			table {
+				margin: 7px 0 20px;
+
+				thead {
+					background-color: #eee;
+				}
+
+				th[scope=col] {
+					background-color: #eee;
+					text-align: center;
+				}
+
+				th, td {
+					padding: 7px 5px 5px;
+					border: 1px solid #d5d5d5;
+					text-align: left;
+				}
+
+				+ p {
+					margin-top: -20px;
+				}
+			}
+
+			> dl {
+				margin-top: 19px;
+			}
+
+			+ article {
+				margin-top: 16px;
+			}
+		}
+	}
+
+	&-info {
+		margin-top: 19px;
+		@include mixin.font('13px/19px');
+
+		> ul {
+			padding: 13px 14px 12px;
+			background-color: #f5f5f5;
+
+			li {
+				&::before {
+					margin-right: 3px;
+					content: '-';
+				}
+			}
+		}
+
+		.mm_form-select {
+			margin-top: 17px;
+		}
+	}
+}
+//> 약관
